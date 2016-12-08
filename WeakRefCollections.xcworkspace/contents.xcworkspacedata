@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:WeakRefCollections.podspec">
+   </FileRef>
+   <Group
+      location = "container:"
+      name = "xcode-project-setup">
+      <Group
+         location = "group:scripts"
+         name = "scripts">
+         <FileRef
+            location = "group:post-merge">
+         </FileRef>
+         <FileRef
+            location = "group:pre-push">
+         </FileRef>
+         <FileRef
+            location = "group:run_synx">
+         </FileRef>
+         <FileRef
+            location = "group:run_xUnique">
+         </FileRef>
+         <FileRef
+            location = "group:xUnique.py">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Gemfile">
+      </FileRef>
+      <FileRef
+         location = "group:LICENSE">
+      </FileRef>
+      <FileRef
+         location = "group:Podfile">
+      </FileRef>
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+      <FileRef
+         location = "group:run_synx_and_xUnique">
+      </FileRef>
+      <FileRef
+         location = "group:setup">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:WeakRefCollections.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
