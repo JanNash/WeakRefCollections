@@ -142,6 +142,7 @@
 				5E909A6A1DF8D45400272098 /* Headers */,
 				5E909A6B1DF8D45400272098 /* Resources */,
 				C899619AB066840C2C1C5E43 /* [CP] Copy Pods Resources */,
+				5E909A881DF8DF9000272098 /* [xps] run synx and xUnique */,
 			);
 			buildRules = (
 			);
@@ -258,6 +259,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		5E909A881DF8DF9000272098 /* [xps] run synx and xUnique */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[xps] run synx and xUnique";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n./run_synx_and_xUnique";
 		};
 		6CD7B57FB260B46E5A9AF872 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -513,6 +528,7 @@
 				5E909A831DF8D45400272098 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E909A841DF8D45400272098 /* Build configuration list for PBXNativeTarget "WeakRefCollectionsTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +537,7 @@
 				5E909A861DF8D45400272098 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
