@@ -7,113 +7,113 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1190811F79BD4CD61ED4FC0A /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0B75D2D716AE6CDAFA65D3 /* Pods_WeakRefCollectionsTests.framework */; };
-		5E909A771DF8D45400272098 /* WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E909A6D1DF8D45400272098 /* WeakRefCollections.framework */; };
-		5E909A7C1DF8D45400272098 /* WeakRefCollectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E909A7B1DF8D45400272098 /* WeakRefCollectionsTests.swift */; };
-		5E909A7E1DF8D45400272098 /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E909A701DF8D45400272098 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1B5B1144BCB1F5CFD28EF43 /* Pods_WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1362C350E11EC8B0D708BBB4 /* Pods_WeakRefCollections.framework */; };
+		84E341DF9F69D866799BCD67CC80DDFF /* Pods_WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */; };
+		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
+		F36066F63E821ED97F5AD03AE6536FC2 /* WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */; };
+		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADAACDC188CFC1F6F105B58ABAF2325D /* WeakRefCollectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717B652740CA69EFA4D2B6DA4B4FE31 /* WeakRefCollectionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5E909A781DF8D45400272098 /* PBXContainerItemProxy */ = {
+		BCB71B1FF98049D56D73FA586C693FFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5E909A641DF8D45400272098 /* Project object */;
+			containerPortal = 0FEAC0A0B9DF8EF1E40563D19F56AD9E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5E909A6C1DF8D45400272098;
+			remoteGlobalIDString = DCCF26DF7A5772D7A9D55975C37202A3;
 			remoteInfo = WeakRefCollections;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1362C350E11EC8B0D708BBB4 /* Pods_WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E909A6D1DF8D45400272098 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E909A701DF8D45400272098 /* WeakRefCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakRefCollections.h; sourceTree = "<group>"; };
-		5E909A711DF8D45400272098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E909A761DF8D45400272098 /* WeakRefCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeakRefCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E909A7B1DF8D45400272098 /* WeakRefCollectionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefCollectionsTests.swift; sourceTree = "<group>"; };
-		5E909A7D1DF8D45400272098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5ECC2DE4A2688C5740BD8FD5 /* Pods-WeakRefCollections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.release.xcconfig"; sourceTree = "<group>"; };
-		8F5AE8521BE75F4A07F56506 /* Pods-WeakRefCollectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.release.xcconfig"; sourceTree = "<group>"; };
-		B21B7B4C6A1ACAA22A42585A /* Pods-WeakRefCollections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.debug.xcconfig"; sourceTree = "<group>"; };
-		CD0B75D2D716AE6CDAFA65D3 /* Pods_WeakRefCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFEF7F07E06F7AEFF812E50E /* Pods-WeakRefCollectionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A459FF64704D8772EF0C4E96C8E192F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7314C5ADF2BE7160C3CFD393E6C31E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.debug.xcconfig"; sourceTree = "<group>"; };
+		045CB6D8658B7C73AA744E34E2A36880 /* Pods-WeakRefCollections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.release.xcconfig"; sourceTree = "<group>"; };
+		6ACF9C7EDAEBD034895348C9AFCF09F1 /* Pods-WeakRefCollectionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		581506A767329EC521373B24279E925E /* Pods-WeakRefCollectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakRefCollections.h; sourceTree = "<group>"; };
+		0717B652740CA69EFA4D2B6DA4B4FE31 /* WeakRefCollectionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefCollectionsTests.swift; sourceTree = "<group>"; };
+		D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeakRefCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5E909A691DF8D45400272098 /* Frameworks */ = {
+		8DADFD2A09B1FF00C79FDBB60F78513C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B5B1144BCB1F5CFD28EF43 /* Pods_WeakRefCollections.framework in Frameworks */,
+				84E341DF9F69D866799BCD67CC80DDFF /* Pods_WeakRefCollections.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5E909A731DF8D45400272098 /* Frameworks */ = {
+		6FC82444454D066A31516C8E8B8B2EF9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E909A771DF8D45400272098 /* WeakRefCollections.framework in Frameworks */,
-				1190811F79BD4CD61ED4FC0A /* Pods_WeakRefCollectionsTests.framework in Frameworks */,
+				DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */,
+				F36066F63E821ED97F5AD03AE6536FC2 /* WeakRefCollections.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E909A631DF8D45400272098 = {
+		E8251ED804D92C1604EFCD836B39A8ED = {
 			isa = PBXGroup;
 			children = (
-				5E909A6F1DF8D45400272098 /* WeakRefCollections */,
-				5E909A7A1DF8D45400272098 /* WeakRefCollectionsTests */,
-				5E909A6E1DF8D45400272098 /* Products */,
-				71308DB1606047602DFE784D /* Pods */,
-				9386D730F3B14F4B1B9C89BB /* Frameworks */,
+				4829ED9B288A38274C43C4954137E417 /* Frameworks */,
+				6F3A87CE0E6BA490FE2C04D78FF3ED5F /* Pods */,
+				C3E43C1FD51F977E53C6BA34B8941433 /* Products */,
+				1394A485CFC1966D449DF47C881889AE /* WeakRefCollections */,
+				8478B560ACC5FBD65A23D4050A5F7E19 /* WeakRefCollectionsTests */,
 			);
 			sourceTree = "<group>";
 		};
-		5E909A6E1DF8D45400272098 /* Products */ = {
+		C3E43C1FD51F977E53C6BA34B8941433 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E909A6D1DF8D45400272098 /* WeakRefCollections.framework */,
-				5E909A761DF8D45400272098 /* WeakRefCollectionsTests.xctest */,
+				16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */,
+				D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5E909A6F1DF8D45400272098 /* WeakRefCollections */ = {
+		1394A485CFC1966D449DF47C881889AE /* WeakRefCollections */ = {
 			isa = PBXGroup;
 			children = (
-				5E909A701DF8D45400272098 /* WeakRefCollections.h */,
-				5E909A711DF8D45400272098 /* Info.plist */,
+				A459FF64704D8772EF0C4E96C8E192F1 /* Info.plist */,
+				C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */,
 			);
 			path = WeakRefCollections;
 			sourceTree = "<group>";
 		};
-		5E909A7A1DF8D45400272098 /* WeakRefCollectionsTests */ = {
+		8478B560ACC5FBD65A23D4050A5F7E19 /* WeakRefCollectionsTests */ = {
 			isa = PBXGroup;
 			children = (
-				5E909A7B1DF8D45400272098 /* WeakRefCollectionsTests.swift */,
-				5E909A7D1DF8D45400272098 /* Info.plist */,
+				7314C5ADF2BE7160C3CFD393E6C31E85 /* Info.plist */,
+				0717B652740CA69EFA4D2B6DA4B4FE31 /* WeakRefCollectionsTests.swift */,
 			);
 			path = WeakRefCollectionsTests;
 			sourceTree = "<group>";
 		};
-		71308DB1606047602DFE784D /* Pods */ = {
+		6F3A87CE0E6BA490FE2C04D78FF3ED5F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B21B7B4C6A1ACAA22A42585A /* Pods-WeakRefCollections.debug.xcconfig */,
-				5ECC2DE4A2688C5740BD8FD5 /* Pods-WeakRefCollections.release.xcconfig */,
-				FFEF7F07E06F7AEFF812E50E /* Pods-WeakRefCollectionsTests.debug.xcconfig */,
-				8F5AE8521BE75F4A07F56506 /* Pods-WeakRefCollectionsTests.release.xcconfig */,
+				F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */,
+				045CB6D8658B7C73AA744E34E2A36880 /* Pods-WeakRefCollections.release.xcconfig */,
+				6ACF9C7EDAEBD034895348C9AFCF09F1 /* Pods-WeakRefCollectionsTests.debug.xcconfig */,
+				581506A767329EC521373B24279E925E /* Pods-WeakRefCollectionsTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		9386D730F3B14F4B1B9C89BB /* Frameworks */ = {
+		4829ED9B288A38274C43C4954137E417 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1362C350E11EC8B0D708BBB4 /* Pods_WeakRefCollections.framework */,
-				CD0B75D2D716AE6CDAFA65D3 /* Pods_WeakRefCollectionsTests.framework */,
+				BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */,
+				71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,28 +121,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5E909A6A1DF8D45400272098 /* Headers */ = {
+		8D2998EAD4E029F8ED87926C3FD9199F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E909A7E1DF8D45400272098 /* WeakRefCollections.h in Headers */,
+				93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5E909A6C1DF8D45400272098 /* WeakRefCollections */ = {
+		DCCF26DF7A5772D7A9D55975C37202A3 /* WeakRefCollections */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E909A811DF8D45400272098 /* Build configuration list for PBXNativeTarget "WeakRefCollections" */;
+			buildConfigurationList = F5AB07F08162D8CF18109EEAF19209C3 /* Build configuration list for PBXNativeTarget "WeakRefCollections" */;
 			buildPhases = (
-				6CD7B57FB260B46E5A9AF872 /* [CP] Check Pods Manifest.lock */,
-				5E909A681DF8D45400272098 /* Sources */,
-				5E909A691DF8D45400272098 /* Frameworks */,
-				5E909A6A1DF8D45400272098 /* Headers */,
-				5E909A6B1DF8D45400272098 /* Resources */,
-				C899619AB066840C2C1C5E43 /* [CP] Copy Pods Resources */,
-				5E909A881DF8DF9000272098 /* [xps] run synx and xUnique */,
+				711050FAB063E760063854F86BA694D4 /* [CP] Check Pods Manifest.lock */,
+				6E5460A49D313430EF0710C40EADA3F1 /* Sources */,
+				8DADFD2A09B1FF00C79FDBB60F78513C /* Frameworks */,
+				8D2998EAD4E029F8ED87926C3FD9199F /* Headers */,
+				29A20C4144922E1932E97754C981E31F /* Resources */,
+				C214195A311B36518AFA77180B92B411 /* [CP] Copy Pods Resources */,
+				8ABE1BFA1250D2B5D719DC49873FF15E /* [xps] run synx and xUnique */,
 			);
 			buildRules = (
 			);
@@ -150,77 +150,77 @@
 			);
 			name = WeakRefCollections;
 			productName = WeakRefCollections;
-			productReference = 5E909A6D1DF8D45400272098 /* WeakRefCollections.framework */;
+			productReference = 16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5E909A751DF8D45400272098 /* WeakRefCollectionsTests */ = {
+		89F88243A41BAD5E80DF1C75FDBC2A7C /* WeakRefCollectionsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E909A841DF8D45400272098 /* Build configuration list for PBXNativeTarget "WeakRefCollectionsTests" */;
+			buildConfigurationList = B0EA21627A4FEDB8219DB3AAA8CAA86D /* Build configuration list for PBXNativeTarget "WeakRefCollectionsTests" */;
 			buildPhases = (
-				55502AACBB238A733255C033 /* [CP] Check Pods Manifest.lock */,
-				5E909A721DF8D45400272098 /* Sources */,
-				5E909A731DF8D45400272098 /* Frameworks */,
-				5E909A741DF8D45400272098 /* Resources */,
-				86796AEE0963E25F4DC43001 /* [CP] Embed Pods Frameworks */,
-				4CE896B7ADCF6B23A6DE7314 /* [CP] Copy Pods Resources */,
+				99EC17879ED21ECA1A6F0D3D575B3BAD /* [CP] Check Pods Manifest.lock */,
+				72A78BDF6CD03CFBD226466EFB029A89 /* Sources */,
+				6FC82444454D066A31516C8E8B8B2EF9 /* Frameworks */,
+				7E7EE5DD0B2100B64F2CBB4B5B61CAAB /* Resources */,
+				B90DF6965BA4CD07B3286A8B920B2922 /* [CP] Embed Pods Frameworks */,
+				84F718684CDD8EF6CC77115CDFBA5CD2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5E909A791DF8D45400272098 /* PBXTargetDependency */,
+				55993D4A45014228A53AD9BA650C81A2 /* PBXTargetDependency */,
 			);
 			name = WeakRefCollectionsTests;
 			productName = WeakRefCollectionsTests;
-			productReference = 5E909A761DF8D45400272098 /* WeakRefCollectionsTests.xctest */;
+			productReference = D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5E909A641DF8D45400272098 /* Project object */ = {
+		0FEAC0A0B9DF8EF1E40563D19F56AD9E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = JanNash;
 				TargetAttributes = {
-					5E909A6C1DF8D45400272098 = {
+					DCCF26DF7A5772D7A9D55975C37202A3 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
-					5E909A751DF8D45400272098 = {
+					89F88243A41BAD5E80DF1C75FDBC2A7C = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 5E909A671DF8D45400272098 /* Build configuration list for PBXProject "WeakRefCollections" */;
+			buildConfigurationList = A155B8A713CC3245F810E7CBCF58DAEC /* Build configuration list for PBXProject "WeakRefCollections" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 5E909A631DF8D45400272098;
-			productRefGroup = 5E909A6E1DF8D45400272098 /* Products */;
+			mainGroup = E8251ED804D92C1604EFCD836B39A8ED;
+			productRefGroup = C3E43C1FD51F977E53C6BA34B8941433 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E909A6C1DF8D45400272098 /* WeakRefCollections */,
-				5E909A751DF8D45400272098 /* WeakRefCollectionsTests */,
+				DCCF26DF7A5772D7A9D55975C37202A3 /* WeakRefCollections */,
+				89F88243A41BAD5E80DF1C75FDBC2A7C /* WeakRefCollectionsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5E909A6B1DF8D45400272098 /* Resources */ = {
+		29A20C4144922E1932E97754C981E31F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5E909A741DF8D45400272098 /* Resources */ = {
+		7E7EE5DD0B2100B64F2CBB4B5B61CAAB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -230,7 +230,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4CE896B7ADCF6B23A6DE7314 /* [CP] Copy Pods Resources */ = {
+		84F718684CDD8EF6CC77115CDFBA5CD2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -245,7 +245,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		55502AACBB238A733255C033 /* [CP] Check Pods Manifest.lock */ = {
+		99EC17879ED21ECA1A6F0D3D575B3BAD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,7 +260,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5E909A881DF8DF9000272098 /* [xps] run synx and xUnique */ = {
+		8ABE1BFA1250D2B5D719DC49873FF15E /* [xps] run synx and xUnique */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -274,7 +274,7 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\n./run_synx_and_xUnique";
 		};
-		6CD7B57FB260B46E5A9AF872 /* [CP] Check Pods Manifest.lock */ = {
+		711050FAB063E760063854F86BA694D4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,7 +289,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		86796AEE0963E25F4DC43001 /* [CP] Embed Pods Frameworks */ = {
+		B90DF6965BA4CD07B3286A8B920B2922 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -304,7 +304,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C899619AB066840C2C1C5E43 /* [CP] Copy Pods Resources */ = {
+		C214195A311B36518AFA77180B92B411 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -322,33 +322,33 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5E909A681DF8D45400272098 /* Sources */ = {
+		6E5460A49D313430EF0710C40EADA3F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5E909A721DF8D45400272098 /* Sources */ = {
+		72A78BDF6CD03CFBD226466EFB029A89 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E909A7C1DF8D45400272098 /* WeakRefCollectionsTests.swift in Sources */,
+				ADAACDC188CFC1F6F105B58ABAF2325D /* WeakRefCollectionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5E909A791DF8D45400272098 /* PBXTargetDependency */ = {
+		55993D4A45014228A53AD9BA650C81A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5E909A6C1DF8D45400272098 /* WeakRefCollections */;
-			targetProxy = 5E909A781DF8D45400272098 /* PBXContainerItemProxy */;
+			target = DCCF26DF7A5772D7A9D55975C37202A3 /* WeakRefCollections */;
+			targetProxy = BCB71B1FF98049D56D73FA586C693FFA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5E909A7F1DF8D45400272098 /* Debug */ = {
+		D6D03F69284469E3E58CFD23B9196E1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -401,7 +401,7 @@
 			};
 			name = Debug;
 		};
-		5E909A801DF8D45400272098 /* Release */ = {
+		F05E6F473B3294AEE5F226C7BF8D0ECE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -447,9 +447,9 @@
 			};
 			name = Release;
 		};
-		5E909A821DF8D45400272098 /* Debug */ = {
+		D756FD8750D875FF6C64B5071D506467 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B21B7B4C6A1ACAA22A42585A /* Pods-WeakRefCollections.debug.xcconfig */;
+			baseConfigurationReference = F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -466,9 +466,9 @@
 			};
 			name = Debug;
 		};
-		5E909A831DF8D45400272098 /* Release */ = {
+		4D851F9F491F63D47A59AA0B0333C9B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5ECC2DE4A2688C5740BD8FD5 /* Pods-WeakRefCollections.release.xcconfig */;
+			baseConfigurationReference = 045CB6D8658B7C73AA744E34E2A36880 /* Pods-WeakRefCollections.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -485,9 +485,9 @@
 			};
 			name = Release;
 		};
-		5E909A851DF8D45400272098 /* Debug */ = {
+		44351A776170B3900E5884674167A5B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFEF7F07E06F7AEFF812E50E /* Pods-WeakRefCollectionsTests.debug.xcconfig */;
+			baseConfigurationReference = 6ACF9C7EDAEBD034895348C9AFCF09F1 /* Pods-WeakRefCollectionsTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = WeakRefCollectionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -497,9 +497,9 @@
 			};
 			name = Debug;
 		};
-		5E909A861DF8D45400272098 /* Release */ = {
+		7344B71161046E2FB05C479B347DCDE5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F5AE8521BE75F4A07F56506 /* Pods-WeakRefCollectionsTests.release.xcconfig */;
+			baseConfigurationReference = 581506A767329EC521373B24279E925E /* Pods-WeakRefCollectionsTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = WeakRefCollectionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -512,34 +512,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E909A671DF8D45400272098 /* Build configuration list for PBXProject "WeakRefCollections" */ = {
+		A155B8A713CC3245F810E7CBCF58DAEC /* Build configuration list for PBXProject "WeakRefCollections" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E909A7F1DF8D45400272098 /* Debug */,
-				5E909A801DF8D45400272098 /* Release */,
+				D6D03F69284469E3E58CFD23B9196E1B /* Debug */,
+				F05E6F473B3294AEE5F226C7BF8D0ECE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E909A811DF8D45400272098 /* Build configuration list for PBXNativeTarget "WeakRefCollections" */ = {
+		F5AB07F08162D8CF18109EEAF19209C3 /* Build configuration list for PBXNativeTarget "WeakRefCollections" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E909A821DF8D45400272098 /* Debug */,
-				5E909A831DF8D45400272098 /* Release */,
+				D756FD8750D875FF6C64B5071D506467 /* Debug */,
+				4D851F9F491F63D47A59AA0B0333C9B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E909A841DF8D45400272098 /* Build configuration list for PBXNativeTarget "WeakRefCollectionsTests" */ = {
+		B0EA21627A4FEDB8219DB3AAA8CAA86D /* Build configuration list for PBXNativeTarget "WeakRefCollectionsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E909A851DF8D45400272098 /* Debug */,
-				5E909A861DF8D45400272098 /* Release */,
+				44351A776170B3900E5884674167A5B6 /* Debug */,
+				7344B71161046E2FB05C479B347DCDE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5E909A641DF8D45400272098 /* Project object */;
+	rootObject = 0FEAC0A0B9DF8EF1E40563D19F56AD9E /* Project object */;
 }
