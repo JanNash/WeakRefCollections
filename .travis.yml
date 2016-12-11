@@ -17,4 +17,4 @@ before_install:
   - pod install
 
 script:
-- xcodebuild clean build test -workspace WeakRefCollections.xcworkspace -scheme WeakRefCollections -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
+  - xcodebuild clean build test -workspace WeakRefCollections.xcworkspace -scheme WeakRefCollections -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
