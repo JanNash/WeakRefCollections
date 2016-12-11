@@ -163,7 +163,7 @@
 				8D2998EAD4E029F8ED87926C3FD9199F /* Headers */,
 				29A20C4144922E1932E97754C981E31F /* Resources */,
 				C214195A311B36518AFA77180B92B411 /* [CP] Copy Pods Resources */,
-				8ABE1BFA1250D2B5D719DC49873FF15E /* [xps] run synx and xUnique */,
+				D3CB1C76B6D18C366AB51514A0E0D2C4 /* [xps] run synx and xUnique */,
 			);
 			buildRules = (
 			);
@@ -260,7 +260,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8ABE1BFA1250D2B5D719DC49873FF15E /* [xps] run synx and xUnique */ = {
+		D3CB1C76B6D18C366AB51514A0E0D2C4 /* [xps] run synx and xUnique */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,7 +272,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n./run_synx_and_xUnique";
+			shellScript = "#!/bin/bash\nif [[ -e \"$CI\"]]; then\n    ./run_synx_and_xUnique\nfi\n";
 		};
 		99EC17879ED21ECA1A6F0D3D575B3BAD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
