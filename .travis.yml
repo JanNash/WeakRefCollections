@@ -5,6 +5,10 @@ xcode_scheme: WeakRefCollections
 osx_image: xcode8.1
 xcode_sdk: iphonesimulator10.1
 
+cache:
+  - bundler
+  - cocoapods
+
 before_install:
   - gem install bundler
   - bundle install
