@@ -1,0 +1,14 @@
+language: objective-c
+
+xcode_workspace: WeakRefCollections.xcworkspace
+xcode_scheme: WeakRefCollections
+osx_image: xcode8.1
+xcode_sdk: iphonesimulator10.1
+
+before_install:
+  - gem install bundler
+  - bundle install
+  - pod install
+
+script:
+- xcodebuild clean build test -workspace WeakRefCollections.xcworkspace -scheme WeakRefCollections -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
