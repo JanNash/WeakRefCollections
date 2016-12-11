@@ -163,7 +163,7 @@
 				8D2998EAD4E029F8ED87926C3FD9199F /* Headers */,
 				29A20C4144922E1932E97754C981E31F /* Resources */,
 				C214195A311B36518AFA77180B92B411 /* [CP] Copy Pods Resources */,
-				8ABE1BFA1250D2B5D719DC49873FF15E /* [xps] run synx and xUnique */,
+				52E788C8D73F03F0F62BC4B49E7AD5F1 /* [xps] run synx and xUnique */,
 			);
 			buildRules = (
 			);
@@ -230,6 +230,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		52E788C8D73F03F0F62BC4B49E7AD5F1 /* [xps] run synx and xUnique */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[xps] run synx and xUnique";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nif [[ -z \"$CI\" ]]; then\n    ./run_synx_and_xUnique\nfi\n";
+		};
 		711050FAB063E760063854F86BA694D4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,20 +273,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		8ABE1BFA1250D2B5D719DC49873FF15E /* [xps] run synx and xUnique */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[xps] run synx and xUnique";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n./run_synx_and_xUnique";
 		};
 		99EC17879ED21ECA1A6F0D3D575B3BAD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
