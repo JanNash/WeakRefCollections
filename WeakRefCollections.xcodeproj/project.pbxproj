@@ -230,6 +230,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		52E788C8D73F03F0F62BC4B49E7AD5F1 /* [xps] run synx and xUnique */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[xps] run synx and xUnique";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nif [[ -z \"$CI\" ]]; then\n    ./run_synx_and_xUnique\nfi\n";
+		};
 		711050FAB063E760063854F86BA694D4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -304,20 +318,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		52E788C8D73F03F0F62BC4B49E7AD5F1 /* [xps] run synx and xUnique */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[xps] run synx and xUnique";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nif [[ -z \"$CI\" ]]; then\n    ./run_synx_and_xUnique\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
