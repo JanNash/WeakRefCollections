@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		84E341DF9F69D866799BCD67CC80DDFF /* Pods_WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */; };
+		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADAACDC188CFC1F6F105B58ABAF2325D /* WRCMetaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717B652740CA69EFA4D2B6DA4B4FE31 /* WRCMetaTest.swift */; };
 		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
 		F36066F63E821ED97F5AD03AE6536FC2 /* WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */; };
-		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ADAACDC188CFC1F6F105B58ABAF2325D /* WeakRefCollectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717B652740CA69EFA4D2B6DA4B4FE31 /* WeakRefCollectionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,18 +25,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045CB6D8658B7C73AA744E34E2A36880 /* Pods-WeakRefCollections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.release.xcconfig"; sourceTree = "<group>"; };
+		0717B652740CA69EFA4D2B6DA4B4FE31 /* WRCMetaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WRCMetaTest.swift; sourceTree = "<group>"; };
+		16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		581506A767329EC521373B24279E925E /* Pods-WeakRefCollectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.release.xcconfig"; sourceTree = "<group>"; };
+		6ACF9C7EDAEBD034895348C9AFCF09F1 /* Pods-WeakRefCollectionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7314C5ADF2BE7160C3CFD393E6C31E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A459FF64704D8772EF0C4E96C8E192F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.debug.xcconfig"; sourceTree = "<group>"; };
-		045CB6D8658B7C73AA744E34E2A36880 /* Pods-WeakRefCollections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.release.xcconfig"; sourceTree = "<group>"; };
-		6ACF9C7EDAEBD034895348C9AFCF09F1 /* Pods-WeakRefCollectionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		581506A767329EC521373B24279E925E /* Pods-WeakRefCollectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakRefCollections.h; sourceTree = "<group>"; };
-		0717B652740CA69EFA4D2B6DA4B4FE31 /* WeakRefCollectionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefCollectionsTests.swift; sourceTree = "<group>"; };
 		D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeakRefCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				7314C5ADF2BE7160C3CFD393E6C31E85 /* Info.plist */,
-				0717B652740CA69EFA4D2B6DA4B4FE31 /* WeakRefCollectionsTests.swift */,
+				0717B652740CA69EFA4D2B6DA4B4FE31 /* WRCMetaTest.swift */,
 			);
 			path = WeakRefCollectionsTests;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADAACDC188CFC1F6F105B58ABAF2325D /* WeakRefCollectionsTests.swift in Sources */,
+				ADAACDC188CFC1F6F105B58ABAF2325D /* WRCMetaTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
