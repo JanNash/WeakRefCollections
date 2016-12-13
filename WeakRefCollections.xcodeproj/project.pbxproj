@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A06447A6D2957C310E9CD3D353C058F /* DeallocBackCaller_.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A215951C27ED6DFC7996DCBD56311E /* DeallocBackCaller_.swift */; };
 		84E341DF9F69D866799BCD67CC80DDFF /* Pods_WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */; };
 		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
 		D5BD569B4BB35B543A5A8C656106A979 /* WRCMetaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */; };
 		F36066F63E821ED97F5AD03AE6536FC2 /* WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */; };
 		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BD43796BCBFC6383ED51C6974AEEB3B /* WeakWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FA1102864128E2631976098E78A90B /* WeakWrapperTests.swift */; };
+		4BA8CCB57676AD674A35A2DF45FD5EFF /* WeakWrapper_.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2A215951C27ED6DFC7996DCBD56311E /* DeallocBackCaller_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeallocBackCaller_.swift; sourceTree = "<group>"; };
 		7314C5ADF2BE7160C3CFD393E6C31E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A459FF64704D8772EF0C4E96C8E192F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.debug.xcconfig"; sourceTree = "<group>"; };
@@ -37,6 +41,8 @@
 		16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakRefCollections.h; sourceTree = "<group>"; };
 		D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeakRefCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FA1102864128E2631976098E78A90B /* WeakWrapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapperTests.swift; sourceTree = "<group>"; };
+		C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper_.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +69,19 @@
 		1394A485CFC1966D449DF47C881889AE /* WeakRefCollections */ = {
 			isa = PBXGroup;
 			children = (
+				9648FE9BE41CAD13D65E5DE4987C0170 /* Sources */,
 				A459FF64704D8772EF0C4E96C8E192F1 /* Info.plist */,
 				C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */,
 			);
 			path = WeakRefCollections;
+			sourceTree = "<group>";
+		};
+		3700F0909722C099054686573E0A50BB /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				6CD2FA79EA362E844661A13469CA7A0C /* Types */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 		4829ED9B288A38274C43C4954137E417 /* Frameworks */ = {
@@ -76,6 +91,15 @@
 				71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CD2FA79EA362E844661A13469CA7A0C /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				B2A215951C27ED6DFC7996DCBD56311E /* DeallocBackCaller_.swift */,
+				C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 		6F3A87CE0E6BA490FE2C04D78FF3ED5F /* Pods */ = {
@@ -94,8 +118,18 @@
 			children = (
 				7314C5ADF2BE7160C3CFD393E6C31E85 /* Info.plist */,
 				6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */,
+				D9FA1102864128E2631976098E78A90B /* WeakWrapperTests.swift */,
 			);
 			path = WeakRefCollectionsTests;
+			sourceTree = "<group>";
+		};
+		9648FE9BE41CAD13D65E5DE4987C0170 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3700F0909722C099054686573E0A50BB /* Internal */,
+				C6B4B48A2AFF1E432BA09835916A769F /* Public */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		C3E43C1FD51F977E53C6BA34B8941433 /* Products */ = {
@@ -105,6 +139,13 @@
 				D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C6B4B48A2AFF1E432BA09835916A769F /* Public */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 		E8251ED804D92C1604EFCD836B39A8ED = {
@@ -189,6 +230,7 @@
 					};
 					DCCF26DF7A5772D7A9D55975C37202A3 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -311,6 +353,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A06447A6D2957C310E9CD3D353C058F /* DeallocBackCaller_.swift in Sources */,
+				4BA8CCB57676AD674A35A2DF45FD5EFF /* WeakWrapper_.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5BD569B4BB35B543A5A8C656106A979 /* WRCMetaTest.swift in Sources */,
+				2BD43796BCBFC6383ED51C6974AEEB3B /* WeakWrapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6ACF9C7EDAEBD034895348C9AFCF09F1 /* Pods-WeakRefCollectionsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WeakRefCollectionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JanNash.WeakRefCollectionsTests;
@@ -349,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 045CB6D8658B7C73AA744E34E2A36880 /* Pods-WeakRefCollections.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -368,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 581506A767329EC521373B24279E925E /* Pods-WeakRefCollectionsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WeakRefCollectionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JanNash.WeakRefCollectionsTests;
@@ -434,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -445,6 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = JanNash.WeakRefCollections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
