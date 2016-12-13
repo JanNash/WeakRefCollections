@@ -21,12 +21,7 @@ protocol WeakWrapperDelegate_: class {
 // MARK: Interface
 extension WeakWrapper_ {
     var delegate: WeakWrapperDelegate_? {
-        get {
-            return self._delegate
-        }
-        set(newDelegate) {
-            self._delegate = newDelegate
-        }
+        return self._delegate
     }
     
     var value: T? {
@@ -38,7 +33,8 @@ extension WeakWrapper_ {
 // MARK: Struct Declaration
 struct WeakWrapper_<T: AnyObject> {
     // Init
-    init(_ value: T) {
+    init(_ value: T, delegate: WeakWrapperDelegate_? = nil) {
+        self._delegate = delegate
         self._value = value
         objc_setAssociatedObject(
             self._value,
