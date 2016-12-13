@@ -11,8 +11,18 @@ import XCTest
 
 
 class WeakWrapperTests: WRCMetaTest {
-    func testInitialValueIsNil() {
-        let weak: WeakWrapper_<NSObject> = WeakWrapper_()
+    class Foo {}
+    
+    func testValueIsStoredWeakly1() {
+        let weak: WeakWrapper_<Foo> = WeakWrapper_(Foo())
         XCTAssert(weak.value == nil)
+    }
+    
+    func testValueIsStoredWeakly2() {
+        var foo: Foo? = Foo()
+        let weak2: WeakWrapper_<Foo> = WeakWrapper_(foo!)
+        XCTAssert(weak2.value != nil)
+        foo = nil
+        XCTAssert(weak2.value == nil)
     }
 }
