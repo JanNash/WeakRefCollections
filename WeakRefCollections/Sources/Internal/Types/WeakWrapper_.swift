@@ -30,12 +30,7 @@ extension WeakWrapper_ {
     }
     
     var value: T? {
-        get {
-            return self._value
-        }
-        set(newValue) {
-            self._value = newValue
-        }
+        return self._value
     }
 }
 
@@ -43,27 +38,22 @@ extension WeakWrapper_ {
 // MARK: Struct Declaration
 struct WeakWrapper_<T: AnyObject> {
     // Init
-    init(_ value: T? = nil) {
+    init(_ value: T) {
         self._value = value
+        objc_setAssociatedObject(
+            self._value,
+            &self._associationKey,
+            DeallocBackCaller_(self._deinitDelegateCall),
+            .OBJC_ASSOCIATION_RETAIN
+        )
     }
     
     // Private Weak Variable Properties
     fileprivate weak var _delegate: WeakWrapperDelegate_?
+    fileprivate weak var _value: T?
     
     // Private Variable Properties
     private var _associationKey: Void?
-    fileprivate weak var _value: T? {
-        didSet {
-            if self._value != nil {
-                objc_setAssociatedObject(
-                    self._value,
-                    &self._associationKey,
-                    DeallocBackCaller_(self._deinitDelegateCall),
-                    .OBJC_ASSOCIATION_RETAIN
-                )
-            }
-        }
-    }
 }
 
 
