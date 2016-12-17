@@ -10,6 +10,25 @@ import Foundation
 
 
 // MARK: // Public
+// MARK: WeakRefArray Interface
+public extension WeakRefArray {
+    public var shouldPurgeLazily: Bool {
+        get {
+            return self._shouldPurgeLazily
+        }
+        set(newShouldPurgeLazily) {
+            self._shouldPurgeLazily = newShouldPurgeLazily
+        }
+    }
+}
+
+
+// MARK: Array Interface
+public extension WeakRefArray {
+    
+}
+
+
 // MARK: Class Declaration
 public class WeakRefArray<Element: AnyObject> {
     // Inits
@@ -32,6 +51,13 @@ public class WeakRefArray<Element: AnyObject> {
     
     // Private Variable Properties
     fileprivate var _array: Array<WeakWrapper_<Element>>
+    fileprivate var _shouldPurgeLazily: Bool = true {
+        willSet(newValue) {
+            if !newValue && self._shouldPurgeLazily {
+                self._purge()
+            }
+        }
+    }
 }
 
 
@@ -45,3 +71,27 @@ extension WeakRefArray: CustomStringConvertible {
         return "WeakRefArray" + self._array.description
     }
 }
+
+
+// MARK: // Private
+// MARK: Array Interface Implementations
+
+// MARK: Purging
+private extension WeakRefArray {
+    @discardableResult func _purge() -> Array<Element> {
+        var purgedArray: Array<WeakWrapper_<Element>> = []
+        var extractedArray: Array<Element> = []
+        
+        let rawArray: Array<WeakWrapper_<Element>> = self._array
+        for weakWrapper in rawArray {
+            if let value: Element = weakWrapper.value {
+                purgedArray.append(weakWrapper)
+                extractedArray.append(value)
+            }
+        }
+        
+        self._array = purgedArray
+        return extractedArray
+    }
+}
+
