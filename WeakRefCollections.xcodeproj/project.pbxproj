@@ -14,6 +14,7 @@
 		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5BD569B4BB35B543A5A8C656106A979 /* WRCMetaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */; };
 		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
+		D1215BFE5E598E0E2DD2D79444EBE86D /* WeakRefArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A90FAC8948DF7B63E9C9051CE0331F /* WeakRefArray.swift */; };
 		F36066F63E821ED97F5AD03AE6536FC2 /* WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,10 @@
 		7314C5ADF2BE7160C3CFD393E6C31E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A459FF64704D8772EF0C4E96C8E192F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WRCMetaTest.swift; sourceTree = "<group>"; };
+		09A90FAC8948DF7B63E9C9051CE0331F /* WeakRefArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakRefArray.swift; sourceTree = "<group>"; };
+		16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakRefCollections.h; sourceTree = "<group>"; };
 		C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper_.swift; sourceTree = "<group>"; };
 		D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeakRefCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +137,14 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		BC7AD18BEF2E4BED1578119FA9378DC5 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				09A90FAC8948DF7B63E9C9051CE0331F /* WeakRefArray.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
 		C3E43C1FD51F977E53C6BA34B8941433 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +157,7 @@
 		C6B4B48A2AFF1E432BA09835916A769F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				BC7AD18BEF2E4BED1578119FA9378DC5 /* Types */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -354,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				507891552FFCD2E9FD0572D02CA3AE0E /* DeinitCallbackWrapper_.swift in Sources */,
+				D1215BFE5E598E0E2DD2D79444EBE86D /* WeakRefArray.swift in Sources */,
 				4BA8CCB57676AD674A35A2DF45FD5EFF /* WeakWrapper_.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
