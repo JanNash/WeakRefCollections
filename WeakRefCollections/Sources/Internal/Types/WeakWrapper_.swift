@@ -23,16 +23,16 @@ extension WeakWrapper_ {
         return self._delegate
     }
     
-    var value: T? {
+    var value: Value? {
         return self._value
     }
 }
 
 
 // MARK: Struct Declaration
-struct WeakWrapper_<T: AnyObject> {
+struct WeakWrapper_<Value: AnyObject> {
     // Init
-    init(_ value: T, delegate: WeakWrapperDelegate_? = nil) {
+    init(_ value: Value, delegate: WeakWrapperDelegate_? = nil) {
         self._delegate = delegate
         self._value = value
         objc_setAssociatedObject(
@@ -45,7 +45,7 @@ struct WeakWrapper_<T: AnyObject> {
     
     // Private Weak Variable Properties
     fileprivate weak var _delegate: WeakWrapperDelegate_?
-    fileprivate weak var _value: T?
+    fileprivate weak var _value: Value?
     
     // Private Variable Properties
     private var _associationKey: Void?
