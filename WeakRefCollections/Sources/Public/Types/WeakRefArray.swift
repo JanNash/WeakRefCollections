@@ -36,6 +36,12 @@ public class WeakRefArray<Element: AnyObject> {
 
 
 // MARK: ExpressibleByArrayLiteral
-extension WeakRefArray: ExpressibleByArrayLiteral {
-    
+extension WeakRefArray: ExpressibleByArrayLiteral {}
+
+
+// MARK: CustomStringConvertible
+extension WeakRefArray: CustomStringConvertible {
+    public var description: String {
+        return "WeakRefArray" + self._array.description
+    }
 }
