@@ -1,5 +1,5 @@
 //
-//  DeallocBackCaller_.swift
+//  DeinitCallbackWrapper_.swift
 //  WeakRefCollections
 //
 //  Created by Jan Nash on 12/13/16.
@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: // Internal
 // MARK: Class Declaration
-class DeallocBackCaller_ {
+class DeinitCallbackWrapper_ {
     // Init
     init(_ deinitCallback: @escaping (() -> Void)) {
         self._deinitCallback = deinitCallback

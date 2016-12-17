@@ -39,7 +39,7 @@ struct WeakWrapper_<T: AnyObject> {
         objc_setAssociatedObject(
             self._value,
             &self._associationKey,
-            DeallocBackCaller_(self._deinitDelegateCall),
+            DeinitCallbackWrapper_(self._deinitDelegateCall),
             .OBJC_ASSOCIATION_RETAIN
         )
     }
