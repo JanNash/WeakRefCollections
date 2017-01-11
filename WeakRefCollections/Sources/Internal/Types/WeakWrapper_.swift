@@ -59,6 +59,22 @@ struct WeakWrapper_ {
 }
 
 
+// MARK: CustomStringConvertible
+extension WeakWrapper_: CustomStringConvertible {
+    var description: String {
+        return ??self.value
+    }
+}
+
+
+// MARK: CustomDebugStringConvertible
+extension WeakWrapper_: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "WeakWrapper_(value: \(??value), uuid: \(self._uuid), delegate: \(??self._delegate))"
+    }
+}
+
+
 // MARK: // Private
 // MARK: Computed Properties
 private extension WeakWrapper_ {
