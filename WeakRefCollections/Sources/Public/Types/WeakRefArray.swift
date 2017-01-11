@@ -55,7 +55,7 @@ public class WeakRefArray<Element: AnyObject> {
     }
     
     // Private Variable Properties
-    fileprivate var _array: [WeakWrapper_<Element>]
+    fileprivate var _array: [WeakWrapper_]
     fileprivate var _shouldPurgeLazily: Bool = true {
         willSet(newValue) {
             if !newValue && self._shouldPurgeLazily {
@@ -81,9 +81,9 @@ extension WeakRefArray: CustomStringConvertible {
 
 // MARK: WeakWrapperDelegate
 extension WeakRefArray: WeakWrapperDelegate_ {
-    func valueDeinitialized(of weakWrapper: WeakWrapper_<AnyObject>) {
+    func valueDeinitialized(of weakWrapper: WeakWrapper_) {
         if !self._shouldPurgeLazily {
-            var rawArray: [WeakWrapper_<Element>] = self._array
+            var rawArray: [WeakWrapper_] = self._array
             if let index: Int = rawArray.index(where: { $0.uuid == weakWrapper.uuid }) {
                 rawArray.remove(at: index)
             }
@@ -98,13 +98,13 @@ extension WeakRefArray: WeakWrapperDelegate_ {
 // MARK: Purging
 private extension WeakRefArray {
     @discardableResult func _purge() -> [Element] {
-        var purgedArray: [WeakWrapper_<Element>] = []
+        var purgedArray: [WeakWrapper_] = []
         var extractedArray: [Element] = []
         
-        let rawArray: [WeakWrapper_<Element>] = self._array
+        let rawArray: [WeakWrapper_] = self._array
         
         for wrapper in rawArray {
-            if let value: Element = wrapper.value {
+            if let value: Element = wrapper.value as? Element {
                 purgedArray.append(wrapper)
                 extractedArray.append(value)
             }
