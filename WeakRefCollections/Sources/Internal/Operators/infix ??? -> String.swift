@@ -3,7 +3,6 @@
 //  WeakRefCollections
 //
 //  Created by Jan Nash on 1/11/17.
-//  Copyright © 2017 JanNash. All rights reserved.
 //
 //  Thank you, Ole Begemann
 //  https://oleb.net/blog/2016/12/optionals-string-interpolation/
