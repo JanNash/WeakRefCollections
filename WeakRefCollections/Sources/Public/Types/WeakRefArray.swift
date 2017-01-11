@@ -49,13 +49,13 @@ public class WeakRefArray<Element: AnyObject> {
         self._array = Array(repeating: WeakWrapper_(repeatedValue), count: count)
     }
     
-    // ExpressibleByArrayLiteral
+    // ExpressibleByArrayLiteral Implementation
     required public init(arrayLiteral elements: Element...) {
         self._array = elements.map({ WeakWrapper_($0) })
     }
     
     // Private Variable Properties
-    fileprivate var _array: Array<WeakWrapper_<Element>>
+    fileprivate var _array: [WeakWrapper_]
     fileprivate var _shouldPurgeLazily: Bool = true {
         willSet(newValue) {
             if !newValue && self._shouldPurgeLazily {
@@ -66,7 +66,8 @@ public class WeakRefArray<Element: AnyObject> {
 }
 
 
-// MARK: ExpressibleByArrayLiteral
+// MARK: ExpressibleByArrayLiteral 
+// (Implementation in class declaration)
 extension WeakRefArray: ExpressibleByArrayLiteral {}
 
 
@@ -78,24 +79,39 @@ extension WeakRefArray: CustomStringConvertible {
 }
 
 
+// MARK: WeakWrapperDelegate
+extension WeakRefArray: WeakWrapperDelegate_ {
+    func valueDeinitialized(of weakWrapper: WeakWrapper_) {
+        if !self._shouldPurgeLazily {
+            var rawArray: [WeakWrapper_] = self._array
+            if let index: Int = rawArray.index(where: { $0.uuid == weakWrapper.uuid }) {
+                rawArray.remove(at: index)
+            }
+        }
+    }
+}
+
+
 // MARK: // Private
 // MARK: Array Interface Implementations
 
 // MARK: Purging
 private extension WeakRefArray {
-    @discardableResult func _purge() -> Array<Element> {
-        var purgedArray: Array<WeakWrapper_<Element>> = []
-        var extractedArray: Array<Element> = []
+    @discardableResult func _purge() -> [Element] {
+        var purgedArray: [WeakWrapper_] = []
+        var extractedArray: [Element] = []
         
-        let rawArray: Array<WeakWrapper_<Element>> = self._array
-        for weakWrapper in rawArray {
-            if let value: Element = weakWrapper.value {
-                purgedArray.append(weakWrapper)
+        let rawArray: [WeakWrapper_] = self._array
+        
+        for wrapper in rawArray {
+            if let value: Element = wrapper.value as? Element {
+                purgedArray.append(wrapper)
                 extractedArray.append(value)
             }
         }
         
         self._array = purgedArray
+        
         return extractedArray
     }
 }

@@ -12,7 +12,7 @@
 // MARK: - WeakWrapperDelegate_
 // MARK: Protocol Declaration
 protocol WeakWrapperDelegate_: class {
-    func valueDeinitialized<T: AnyObject>(of weakWrapper: WeakWrapper_<T>)
+    func valueDeinitialized(of weakWrapper: WeakWrapper_)
 }
 
 
@@ -23,16 +23,20 @@ extension WeakWrapper_ {
         return self._delegate
     }
     
-    var value: T? {
+    var value: AnyObject? {
         return self._value
+    }
+    
+    var uuid: UUID {
+        return self._uuid
     }
 }
 
 
 // MARK: Struct Declaration
-struct WeakWrapper_<T: AnyObject> {
+struct WeakWrapper_ {
     // Init
-    init(_ value: T, delegate: WeakWrapperDelegate_? = nil) {
+    init(_ value: AnyObject, delegate: WeakWrapperDelegate_? = nil) {
         self._delegate = delegate
         self._value = value
         objc_setAssociatedObject(
@@ -45,10 +49,29 @@ struct WeakWrapper_<T: AnyObject> {
     
     // Private Weak Variable Properties
     fileprivate weak var _delegate: WeakWrapperDelegate_?
-    fileprivate weak var _value: T?
+    fileprivate weak var _value: AnyObject?
+    
+    // Private Constant Properties
+    fileprivate let _uuid: UUID = UUID()
     
     // Private Variable Properties
     private var _associationKey: Void?
+}
+
+
+// MARK: CustomStringConvertible
+extension WeakWrapper_: CustomStringConvertible {
+    var description: String {
+        return ??self.value
+    }
+}
+
+
+// MARK: CustomDebugStringConvertible
+extension WeakWrapper_: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "WeakWrapper_(value: \(??value), uuid: \(self._uuid), delegate: \(??self._delegate))"
+    }
 }
 
 
