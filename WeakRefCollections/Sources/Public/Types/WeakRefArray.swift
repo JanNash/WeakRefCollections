@@ -79,6 +79,14 @@ extension WeakRefArray: CustomStringConvertible {
 }
 
 
+// MARK: CustomDebugStringConvertible
+extension WeakRefArray: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        return "WeakRefArray(shouldPurgeLazily: \(self._shouldPurgeLazily), array: \(self._array.debugDescription))"
+    }
+}
+
+
 // MARK: WeakWrapperDelegate
 extension WeakRefArray: WeakWrapperDelegate_ {
     func valueDeinitialized(of weakWrapper: WeakWrapper_) {
