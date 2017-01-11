@@ -12,7 +12,7 @@
 // MARK: - WeakWrapperDelegate_
 // MARK: Protocol Declaration
 protocol WeakWrapperDelegate_: class {
-    func valueDeinitialized<T: AnyObject>(of weakWrapper: WeakWrapper_<T>)
+    func valueDeinitialized(of weakWrapper: WeakWrapper_<AnyObject>)
 }
 
 
@@ -25,6 +25,10 @@ extension WeakWrapper_ {
     
     var value: Value? {
         return self._value
+    }
+    
+    var uuid: UUID {
+        return self._uuid
     }
 }
 
@@ -46,6 +50,9 @@ struct WeakWrapper_<Value: AnyObject> {
     // Private Weak Variable Properties
     fileprivate weak var _delegate: WeakWrapperDelegate_?
     fileprivate weak var _value: Value?
+    
+    // Private Constant Properties
+    fileprivate let _uuid: UUID = UUID()
     
     // Private Variable Properties
     private var _associationKey: Void?
