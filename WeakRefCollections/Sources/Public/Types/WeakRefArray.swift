@@ -10,8 +10,8 @@ import Foundation
 
 
 // MARK: // Public
-// MARK: WeakRefArray Interface
-public extension WeakRefArray {
+// MARK: SelfPurgingType
+extension WeakRefArray: SelfPurgingType {
     public var shouldPurgeLazily: Bool {
         get {
             return self._shouldPurgeLazily
@@ -20,7 +20,12 @@ public extension WeakRefArray {
             self._shouldPurgeLazily = newShouldPurgeLazily
         }
     }
+    
+    public func purge() {
+        self._purge()
+    }
 }
+
 
 
 // MARK: Array Interface
