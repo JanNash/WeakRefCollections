@@ -15,6 +15,9 @@
 		7547D7101475C77D520C437FBEBB4C9A /* SelfPurgingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD0E482018599FF537454883F99A35 /* SelfPurgingType.swift */; };
 		84E341DF9F69D866799BCD67CC80DDFF /* Pods_WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */; };
 		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84E341DF9F69D866799BCD67CC80DDFF /* Pods_WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */; };
+		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
+		D5BD569B4BB35B543A5A8C656106A979 /* WRCMetaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */; };
 		D1215BFE5E598E0E2DD2D79444EBE86D /* WeakRefArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A90FAC8948DF7B63E9C9051CE0331F /* WeakRefArray.swift */; };
 		D5BD569B4BB35B543A5A8C656106A979 /* WRCMetaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */; };
 		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
@@ -46,6 +49,9 @@
 		A459FF64704D8772EF0C4E96C8E192F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4BD0E482018599FF537454883F99A35 /* SelfPurgingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfPurgingType.swift; sourceTree = "<group>"; };
 		BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WRCMetaTest.swift; sourceTree = "<group>"; };
+		09A90FAC8948DF7B63E9C9051CE0331F /* WeakRefArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakRefArray.swift; sourceTree = "<group>"; };
+		16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakRefCollections.h; sourceTree = "<group>"; };
 		C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper_.swift; sourceTree = "<group>"; };
 		D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeakRefCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,14 +156,6 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		B028C13ABB736D3872166965E8499927 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				A4BD0E482018599FF537454883F99A35 /* SelfPurgingType.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		BC7AD18BEF2E4BED1578119FA9378DC5 /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +176,6 @@
 		C6B4B48A2AFF1E432BA09835916A769F /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				B028C13ABB736D3872166965E8499927 /* Protocols */,
 				BC7AD18BEF2E4BED1578119FA9378DC5 /* Types */,
 			);
 			path = Public;
@@ -390,7 +387,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				507891552FFCD2E9FD0572D02CA3AE0E /* DeinitCallbackWrapper_.swift in Sources */,
-				7547D7101475C77D520C437FBEBB4C9A /* SelfPurgingType.swift in Sources */,
 				D1215BFE5E598E0E2DD2D79444EBE86D /* WeakRefArray.swift in Sources */,
 				4BA8CCB57676AD674A35A2DF45FD5EFF /* WeakWrapper_.swift in Sources */,
 				4257ADBC709A51A6ADF5177F516A7B5C /* infix ??? -> String.swift in Sources */,

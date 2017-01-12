@@ -10,24 +10,6 @@ import Foundation
 
 
 // MARK: // Public
-// MARK: SelfPurgingType
-extension WeakRefArray: SelfPurgingType {
-    public var shouldPurgeLazily: Bool {
-        get {
-            return self._shouldPurgeLazily
-        }
-        set(newShouldPurgeLazily) {
-            self._shouldPurgeLazily = newShouldPurgeLazily
-        }
-    }
-    
-    public func purge() {
-        self._purge()
-    }
-}
-
-
-
 // MARK: Array Interface
 public extension WeakRefArray {
     
@@ -36,7 +18,7 @@ public extension WeakRefArray {
 
 // MARK: Class Declaration
 public class WeakRefArray<Element: AnyObject> {
-    // Inits
+    // Array Inits
     public init() {
         self._array = []
     }
@@ -56,13 +38,7 @@ public class WeakRefArray<Element: AnyObject> {
     
     // Private Variable Properties
     fileprivate var _array: [WeakWrapper_]
-    fileprivate var _shouldPurgeLazily: Bool = true {
-        willSet(newValue) {
-            if !newValue && self._shouldPurgeLazily {
-                self._purge()
-            }
-        }
-    }
+    fileprivate var _numberOfEmptyWrappers: Int = 0
 }
 
 
@@ -74,7 +50,7 @@ extension WeakRefArray: ExpressibleByArrayLiteral {}
 // MARK: CustomStringConvertible
 extension WeakRefArray: CustomStringConvertible {
     public var description: String {
-        return "WeakRefArray" + self._array.description
+        return "WeakRefArray" + self._array.debugDescription
     }
 }
 
@@ -82,7 +58,15 @@ extension WeakRefArray: CustomStringConvertible {
 // MARK: CustomDebugStringConvertible
 extension WeakRefArray: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return "WeakRefArray(shouldPurgeLazily: \(self._shouldPurgeLazily), array: \(self._array.debugDescription))"
+        let array: [WeakWrapper_] = self._array
+        let count: Int = array.count
+        let purgedCount: Int = count - self._numberOfEmptyWrappers
+        let arrayDescription: String = array.debugDescription
+        return "WeakRefArray(" +
+            "count: \(count), " +
+            "purgedCount: \(purgedCount), " +
+            "array: \(arrayDescription)" +
+        ")"
     }
 }
 
@@ -90,12 +74,7 @@ extension WeakRefArray: CustomDebugStringConvertible {
 // MARK: WeakWrapperDelegate
 extension WeakRefArray: WeakWrapperDelegate_ {
     func valueDeinitialized(of weakWrapper: WeakWrapper_) {
-        if !self._shouldPurgeLazily {
-            var rawArray: [WeakWrapper_] = self._array
-            if let index: Int = rawArray.index(where: { $0.uuid == weakWrapper.uuid }) {
-                rawArray.remove(at: index)
-            }
-        }
+        self._numberOfEmptyWrappers += 1
     }
 }
 
@@ -103,23 +82,28 @@ extension WeakRefArray: WeakWrapperDelegate_ {
 // MARK: // Private
 // MARK: Array Interface Implementations
 
-// MARK: Purging
+// MARK: Purging / Extracting
 private extension WeakRefArray {
-    @discardableResult func _purge() -> [Element] {
+    @discardableResult func _purge(forEachExistingElement: ((Element) -> Void)? = nil) {
         var purgedArray: [WeakWrapper_] = []
-        var extractedArray: [Element] = []
-        
         let rawArray: [WeakWrapper_] = self._array
         
         for wrapper in rawArray {
             if let value: Element = wrapper.value as? Element {
                 purgedArray.append(wrapper)
-                extractedArray.append(value)
+                forEachExistingElement?(value)
             }
         }
         
         self._array = purgedArray
-        
+        self._numberOfEmptyWrappers = 0
+    }
+    
+    func _extract() -> [Element] {
+        var extractedArray: [Element] = []
+        self._purge(forEachExistingElement: {
+            extractedArray.append($0)
+        })
         return extractedArray
     }
 }

@@ -26,10 +26,6 @@ extension WeakWrapper_ {
     var value: AnyObject? {
         return self._value
     }
-    
-    var uuid: UUID {
-        return self._uuid
-    }
 }
 
 
@@ -51,9 +47,6 @@ struct WeakWrapper_ {
     fileprivate weak var _delegate: WeakWrapperDelegate_?
     fileprivate weak var _value: AnyObject?
     
-    // Private Constant Properties
-    fileprivate let _uuid: UUID = UUID()
-    
     // Private Variable Properties
     private var _associationKey: Void?
 }
@@ -70,7 +63,7 @@ extension WeakWrapper_: CustomStringConvertible {
 // MARK: CustomDebugStringConvertible
 extension WeakWrapper_: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "WeakWrapper_(value: \(??value), uuid: \(self._uuid), delegate: \(??self._delegate))"
+        return "WeakWrapper_(value: \(??value), delegate: \(??self._delegate))"
     }
 }
 
