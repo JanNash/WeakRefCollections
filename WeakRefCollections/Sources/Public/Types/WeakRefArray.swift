@@ -24,25 +24,46 @@ public class WeakRefArray<Element: AnyObject> {
     }
     
     public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
-        self._array = s.map({ WeakWrapper_($0) })
-    }
-    
-    public init(repeating repeatedValue: Element, count: Int) {
-        self._array = Array(repeating: WeakWrapper_(repeatedValue), count: count)
+        var array: [WeakWrapper_] = []
+        var previous: WeakWrapper_? = nil
+        for value in s {
+            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: previous, delegate: self)
+            array.append(wrapper)
+            previous = wrapper
+        }
+        
+        self._array = array
     }
     
     // ExpressibleByArrayLiteral Implementation
     required public init(arrayLiteral elements: Element...) {
-        self._array = elements.map({ WeakWrapper_($0) })
+        self._array.reserveCapacity(elements.count)
+        var previous: WeakWrapper_? = nil
+        for value in elements {
+            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: previous, delegate: self)
+            self._array.append(wrapper)
+            previous = wrapper
+        }
+    }
+    
+    // Private Init Helper Function
+    private func wrapMap(_ previous: inout WeakWrapper_?) -> ((Element) -> WeakWrapper_) {
+        var _previous: WeakWrapper_? = previous
+        return {
+            value in
+            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: _previous, delegate: nil)
+            _previous = wrapper
+            return wrapper
+        }
     }
     
     // Private Variable Properties
-    fileprivate var _array: [WeakWrapper_]
+    fileprivate var _array: [WeakWrapper_] = []
     fileprivate var _numberOfEmptyWrappers: Int = 0
 }
 
 
-// MARK: ExpressibleByArrayLiteral 
+// MARK: ExpressibleByArrayLiteral
 // (Implementation in class declaration)
 extension WeakRefArray: ExpressibleByArrayLiteral {}
 
@@ -73,38 +94,7 @@ extension WeakRefArray: CustomDebugStringConvertible {
 
 // MARK: WeakWrapperDelegate
 extension WeakRefArray: WeakWrapperDelegate_ {
-    func valueDeinitialized(of weakWrapper: WeakWrapper_) {
-        self._numberOfEmptyWrappers += 1
+    func didDisconnect(weakWrapper: WeakWrapper_) {
+        self._array.remove(at: weakWrapper.index)
     }
 }
-
-
-// MARK: // Private
-// MARK: Array Interface Implementations
-
-// MARK: Purging / Extracting
-private extension WeakRefArray {
-    @discardableResult func _purge(forEachExistingElement: ((Element) -> Void)? = nil) {
-        var purgedArray: [WeakWrapper_] = []
-        let rawArray: [WeakWrapper_] = self._array
-        
-        for wrapper in rawArray {
-            if let value: Element = wrapper.value as? Element {
-                purgedArray.append(wrapper)
-                forEachExistingElement?(value)
-            }
-        }
-        
-        self._array = purgedArray
-        self._numberOfEmptyWrappers = 0
-    }
-    
-    func _extract() -> [Element] {
-        var extractedArray: [Element] = []
-        self._purge(forEachExistingElement: {
-            extractedArray.append($0)
-        })
-        return extractedArray
-    }
-}
-
