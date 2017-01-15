@@ -24,6 +24,12 @@
 		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
 		9A4E242A5915EA817009FC82096CDE93 /* WeakRefArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3AA08FC3D143349FBEBA1423AFEFF3 /* WeakRefArrayTests.swift */; };
 		F36066F63E821ED97F5AD03AE6536FC2 /* WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */; };
+		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BD43796BCBFC6383ED51C6974AEEB3B /* WeakWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FA1102864128E2631976098E78A90B /* WeakWrapperTests.swift */; };
+		4BA8CCB57676AD674A35A2DF45FD5EFF /* WeakWrapper_.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */; };
+		4257ADBC709A51A6ADF5177F516A7B5C /* infix ??? -> String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BE952414F0A10A95FA683CD272653C /* infix ??? -> String.swift */; };
+		2758B01F26264DB0E541CF3BEFB3A8E0 /* prefix ?? -> String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D53581AA7DF187ACA6335CB963004A /* prefix ?? -> String.swift */; };
+		A4E607EAD4F278F56160D484FA94171F /* shortDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650E7273876A59C52FC7E5CE33E8C28 /* shortDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +68,10 @@
 		D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeakRefCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FA1102864128E2631976098E78A90B /* WeakWrapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapperTests.swift; sourceTree = "<group>"; };
 		F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.debug.xcconfig"; sourceTree = "<group>"; };
+		C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper_.swift; sourceTree = "<group>"; };
+		55BE952414F0A10A95FA683CD272653C /* infix ??? -> String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "infix ??? -> String.swift"; sourceTree = "<group>"; };
+		07D53581AA7DF187ACA6335CB963004A /* prefix ?? -> String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "prefix ?? -> String.swift"; sourceTree = "<group>"; };
+		8650E7273876A59C52FC7E5CE33E8C28 /* shortDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = shortDescription.swift; path = shortDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +108,7 @@
 		3700F0909722C099054686573E0A50BB /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				5ABCA0B8BAB10149DA6B8E193D64790F /* Helper Functions */,
 				5BDD2F407C5372D29FF8B6DDF9283CB7 /* Operators */,
 				AF972ADBF646EF15D658990A3EEEE5B4 /* Protocols */,
 				6CD2FA79EA362E844661A13469CA7A0C /* Types */,
@@ -123,13 +134,13 @@
 			path = Operators;
 			sourceTree = "<group>";
 		};
-		AF972ADBF646EF15D658990A3EEEE5B4 /* Protocols */ = {
+		5ABCA0B8BAB10149DA6B8E193D64790F /* Helper Functions */ = {
 			isa = PBXGroup;
 			children = (
-				95F3A397A7790E7CC9FA01E6D2475B4D /* ShortStringConvertible.swift */,
+				8650E7273876A59C52FC7E5CE33E8C28 /* shortDescription.swift */,
 			);
-			name = Protocols;
-			path = Protocols;
+			name = "Helper Functions";
+			path = "Helper Functions";
 			sourceTree = "<group>";
 		};
 		6CD2FA79EA362E844661A13469CA7A0C /* Types */ = {
@@ -170,6 +181,14 @@
 				C6B4B48A2AFF1E432BA09835916A769F /* Public */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		AF972ADBF646EF15D658990A3EEEE5B4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				95F3A397A7790E7CC9FA01E6D2475B4D /* ShortStringConvertible.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		BC7AD18BEF2E4BED1578119FA9378DC5 /* Types */ = {
@@ -408,6 +427,7 @@
 				4BA8CCB57676AD674A35A2DF45FD5EFF /* WeakWrapper_.swift in Sources */,
 				4257ADBC709A51A6ADF5177F516A7B5C /* infix ??? -> String.swift in Sources */,
 				2758B01F26264DB0E541CF3BEFB3A8E0 /* prefix ?? -> String.swift in Sources */,
+				A4E607EAD4F278F56160D484FA94171F /* shortDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
