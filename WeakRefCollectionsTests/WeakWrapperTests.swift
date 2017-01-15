@@ -14,13 +14,13 @@ class WeakWrapperTests: WRCMetaTest {
     class Foo {}
     
     func testValueIsStoredWeakly1() {
-        let weak: WeakWrapper_ = WeakWrapper_(Foo())
+        let weak: WeakWrapper_ = WeakWrapper_(value: Foo(), previous: nil, delegate: nil)
         XCTAssert(weak.value == nil)
     }
     
     func testValueIsStoredWeakly2() {
         var foo: Foo? = Foo()
-        let weak2: WeakWrapper_ = WeakWrapper_(foo!)
+        let weak2: WeakWrapper_ = WeakWrapper_(value: foo!, previous: nil, delegate: nil)
         XCTAssert(weak2.value != nil)
         foo = nil
         XCTAssert(weak2.value == nil)
@@ -35,7 +35,7 @@ class WeakWrapperTests: WRCMetaTest {
         )
         
         class Bar: WeakWrapperDelegate_ {
-            func valueDeinitialized(of weakWrapper: WeakWrapper_) {
+            func didDisconnect(weakWrapper: WeakWrapper_) {
                 self.callback()
             }
             
@@ -45,7 +45,7 @@ class WeakWrapperTests: WRCMetaTest {
         let del: Bar = Bar()
         del.callback = expectation.fulfill
         
-        _ = WeakWrapper_(Foo(), delegate: del)
+        _ = WeakWrapper_(value: Foo(), previous: nil, delegate: del)
         
         self.waitForExpectations(timeout: 0.1)
     }
