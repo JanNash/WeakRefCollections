@@ -11,7 +11,7 @@
 // MARK: // Internal
 // MARK: - WeakWrapperDelegate_
 // MARK: Protocol Declaration
-protocol WeakWrapperDelegate_: class {
+protocol WeakWrapperDelegate_: ShortStringConvertible {
     func didDisconnect(weakWrapper: WeakWrapper_)
 }
 
@@ -76,7 +76,7 @@ class WeakWrapper_ {
 // MARK: CustomStringConvertible
 extension WeakWrapper_: CustomStringConvertible {
     var description: String {
-        return ??self.value
+        return ??self._value
     }
 }
 
@@ -84,9 +84,19 @@ extension WeakWrapper_: CustomStringConvertible {
 // MARK: CustomDebugStringConvertible
 extension WeakWrapper_: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "WeakWrapper_(value: \(??value), delegate: \(delegate != nil ? "\(type(of: delegate!))" : "nil"))"
+        return
+            "\(self.shortDescription)(" +
+            "value: \(??self._value), " +
+            "index: \(self._index), " +
+            "previous: \(??self._previous?.shortDescription), " +
+            "next: \(??self._next?.shortDescription), " +
+            "delegate: \(??self._delegate?.shortDescription))"
     }
 }
+
+
+// MARK: ShortStringConvertible
+extension WeakWrapper_: ShortStringConvertible {}
 
 
 // MARK: // Private
