@@ -19,13 +19,10 @@ protocol ShortStringConvertible: class {
 // MARK: Default Implementation
 extension ShortStringConvertible {
     var shortDescription: String {
-        var mutableSelf: Self = self
-        var memoryAddress: String = ""
-        withUnsafePointer(to: &mutableSelf) {
-            memoryAddress = "\($0)"
-        }
-        
         let typeString: String = "\(type(of: self))"
-        return "<\(typeString): \(memoryAddress)>"
+        let identifierString: String = ObjectIdentifier(self).debugDescription
+        let prefixRemoved: String = identifierString.replacingOccurrences(of: "ObjectIdentifier(", with: "")
+        let identityString: String = prefixRemoved.replacingOccurrences(of: ")", with: "")
+        return "<\(typeString): \(identityString)>"
     }
 }
