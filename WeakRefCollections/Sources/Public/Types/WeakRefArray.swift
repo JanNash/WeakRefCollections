@@ -10,12 +10,6 @@ import Foundation
 
 
 // MARK: // Public
-// MARK: Array Interface
-public extension WeakRefArray {
-    
-}
-
-
 // MARK: Class Declaration
 public class WeakRefArray<Element: AnyObject> {
     // Array Inits
