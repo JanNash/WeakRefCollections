@@ -24,30 +24,18 @@ public class WeakRefArray<Element: AnyObject> {
     }
     
     public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
-        var array: [WeakWrapper_] = []
         var previous: WeakWrapper_? = nil
-        for value in s {
-            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: previous, delegate: self)
-            array.append(wrapper)
-            previous = wrapper
-        }
-        
-        self._array = array
+        self._array = s.map(self._wrapMap(&previous))
     }
     
     // ExpressibleByArrayLiteral Implementation
     required public init(arrayLiteral elements: Element...) {
-        self._array.reserveCapacity(elements.count)
         var previous: WeakWrapper_? = nil
-        for value in elements {
-            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: previous, delegate: self)
-            self._array.append(wrapper)
-            previous = wrapper
-        }
+        self._array = elements.map(self._wrapMap(&previous))
     }
     
     // Private Init Helper Function
-    private func wrapMap(_ previous: inout WeakWrapper_?) -> ((Element) -> WeakWrapper_) {
+    private func _wrapMap(_ previous: inout WeakWrapper_?) -> ((Element) -> WeakWrapper_) {
         var _previous: WeakWrapper_? = previous
         return {
             value in
@@ -59,7 +47,6 @@ public class WeakRefArray<Element: AnyObject> {
     
     // Private Variable Properties
     fileprivate var _array: [WeakWrapper_] = []
-    fileprivate var _numberOfEmptyWrappers: Int = 0
 }
 
 
