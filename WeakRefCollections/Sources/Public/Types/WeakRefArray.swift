@@ -70,11 +70,13 @@ extension WeakRefArray: CustomDebugStringConvertible {
     public var debugDescription: String {
         let array: [WeakWrapper_] = self._array
         let count: Int = array.count
-        let arrayDescription: String = array.debugDescription
+        let debugDescriptions: [String] = array.map({ $0.debugDescription })
+        let joinedDebugDescriptions: String = debugDescriptions.joined(separator: ", \n    ")
         return "WeakRefArray(" +
             "count: \(count), " +
-            "array: \(arrayDescription)" +
-        ")"
+            "array: [" +
+            "\n    \(joinedDebugDescriptions)" +
+        "])"
     }
 }
 
