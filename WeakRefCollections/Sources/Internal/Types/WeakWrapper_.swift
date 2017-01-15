@@ -84,7 +84,7 @@ extension WeakWrapper_: CustomStringConvertible {
 // MARK: CustomDebugStringConvertible
 extension WeakWrapper_: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "WeakWrapper_(value: \(??value), delegate: \(??self._delegate))"
+        return "WeakWrapper_(value: \(??value), delegate: \(delegate != nil ? "\(type(of: delegate!))" : "nil"))"
     }
 }
 
