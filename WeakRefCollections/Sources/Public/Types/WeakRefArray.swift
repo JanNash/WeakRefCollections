@@ -71,7 +71,9 @@ extension WeakRefArray: ExpressibleByArrayLiteral {}
 // MARK: CustomStringConvertible
 extension WeakRefArray: CustomStringConvertible {
     public var description: String {
-        return "WeakRefArray" + self._array.debugDescription
+        let arrayOfDescriptions: [String] = self._array.map({ String(describing: $0) })
+        let joinedArrayDescription: String = arrayOfDescriptions.joined(separator: ", ")
+        return "WeakRefArray[\(joinedArrayDescription)]"
     }
 }
 
@@ -81,11 +83,9 @@ extension WeakRefArray: CustomDebugStringConvertible {
     public var debugDescription: String {
         let array: [WeakWrapper_] = self._array
         let count: Int = array.count
-        let purgedCount: Int = count - self._numberOfEmptyWrappers
         let arrayDescription: String = array.debugDescription
         return "WeakRefArray(" +
             "count: \(count), " +
-            "purgedCount: \(purgedCount), " +
             "array: \(arrayDescription)" +
         ")"
     }
