@@ -19,11 +19,11 @@ public extension WeakRefArray {
 // MARK: Class Declaration
 public class WeakRefArray<Element: AnyObject> {
     // Array Inits
-    public init() {
+    required public init() {
         self._array = []
     }
     
-    public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
+    required public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
         var previous: WeakWrapper_? = nil
         self._array = s.map(self._wrapMap(&previous))
     }
@@ -32,17 +32,6 @@ public class WeakRefArray<Element: AnyObject> {
     required public init(arrayLiteral elements: Element...) {
         var previous: WeakWrapper_? = nil
         self._array = elements.map(self._wrapMap(&previous))
-    }
-    
-    // Private Init Helper Function
-    private func _wrapMap(_ previous: inout WeakWrapper_?) -> ((Element) -> WeakWrapper_) {
-        var _previous: WeakWrapper_? = previous
-        return {
-            value in
-            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: _previous, delegate: self)
-            _previous = wrapper
-            return wrapper
-        }
     }
     
     // Private Variable Properties
@@ -105,5 +94,29 @@ extension WeakRefArray: Collection {
     
     public subscript(index: Int) -> Element {
         return self._array[index].value as! Element
+    }
+}
+
+
+// MARK: RangeReplaceableCollection
+extension WeakRefArray: RangeReplaceableCollection {
+    public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
+        var previous: WeakWrapper_? = nil
+        self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
+    }
+}
+
+
+// MARK: // Private
+// MARK: Wrapping Helper Function
+private extension WeakRefArray {
+    func _wrapMap(_ previous: inout WeakWrapper_?) -> ((Element) -> WeakWrapper_) {
+        var _previous: WeakWrapper_? = previous
+        return {
+            value in
+            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: _previous, delegate: self)
+            _previous = wrapper
+            return wrapper
+        }
     }
 }
