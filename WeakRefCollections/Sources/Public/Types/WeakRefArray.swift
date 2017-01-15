@@ -87,3 +87,23 @@ extension WeakRefArray: WeakWrapperDelegate_ {
         self._array.remove(at: weakWrapper.index)
     }
 }
+
+
+// MARK: Collection
+extension WeakRefArray: Collection {
+    public var startIndex: Int {
+        return self._array.startIndex
+    }
+    
+    public var endIndex: Int {
+        return self._array.endIndex
+    }
+    
+    public func index(after i: Int) -> Int {
+        return self._array.index(after: i)
+    }
+    
+    public subscript(index: Int) -> Element {
+        return self._array[index].value as! Element
+    }
+}
