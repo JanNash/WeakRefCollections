@@ -11,6 +11,7 @@ import XCTest
 
 
 class WRCMetaTest: XCTestCase {
+    class Foo {}
     
 //    override func setUp() {
 //        super.setUp()

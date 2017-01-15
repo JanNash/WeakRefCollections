@@ -11,7 +11,6 @@ import XCTest
 
 
 class WeakWrapperTests: WRCMetaTest {
-    class Foo {}
     
     func testValueIsStoredWeakly1() {
         let weak: WeakWrapper_ = WeakWrapper_(value: Foo(), previous: nil, delegate: nil)
