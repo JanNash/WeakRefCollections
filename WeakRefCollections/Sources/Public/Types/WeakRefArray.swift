@@ -39,7 +39,7 @@ public class WeakRefArray<Element: AnyObject> {
         var _previous: WeakWrapper_? = previous
         return {
             value in
-            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: _previous, delegate: nil)
+            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: _previous, delegate: self)
             _previous = wrapper
             return wrapper
         }
