@@ -18,18 +18,18 @@ public class WeakRefArray<Element: AnyObject> {
     }
     
     required public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
-        var previous: WeakWrapper_? = nil
+        var previous: ArrayWeakWrapper_? = nil
         self._array = s.map(self._wrapMap(&previous))
     }
     
     // ExpressibleByArrayLiteral Implementation
     required public init(arrayLiteral elements: Element...) {
-        var previous: WeakWrapper_? = nil
+        var previous: ArrayWeakWrapper_? = nil
         self._array = elements.map(self._wrapMap(&previous))
     }
     
     // Private Variable Properties
-    fileprivate var _array: [WeakWrapper_] = []
+    fileprivate var _array: [ArrayWeakWrapper_] = []
 }
 
 
@@ -51,7 +51,7 @@ extension WeakRefArray: CustomStringConvertible {
 // MARK: CustomDebugStringConvertible
 extension WeakRefArray: CustomDebugStringConvertible {
     public var debugDescription: String {
-        let array: [WeakWrapper_] = self._array
+        let array: [ArrayWeakWrapper_] = self._array
         let count: Int = array.count
         let debugDescriptions: [String] = array.map({ $0.debugDescription })
         let joinedDebugDescriptions: String = debugDescriptions.joined(separator: ", \n    ")
@@ -67,7 +67,7 @@ extension WeakRefArray: CustomDebugStringConvertible {
 // MARK: WeakWrapperDelegate
 extension WeakRefArray: WeakWrapperDelegate_ {
     func didDisconnect(weakWrapper: WeakWrapper_) {
-        self._array.remove(at: weakWrapper.index)
+        self._array.remove(at: (weakWrapper as! ArrayWeakWrapper_).index)
     }
 }
 
@@ -95,7 +95,7 @@ extension WeakRefArray: Collection {
 // MARK: RangeReplaceableCollection
 extension WeakRefArray: RangeReplaceableCollection {
     public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
-        var previous: WeakWrapper_? = nil
+        var previous: ArrayWeakWrapper_? = nil
         self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
     }
 }
@@ -104,11 +104,11 @@ extension WeakRefArray: RangeReplaceableCollection {
 // MARK: // Private
 // MARK: Wrapping Helper Function
 private extension WeakRefArray {
-    func _wrapMap(_ previous: inout WeakWrapper_?) -> ((Element) -> WeakWrapper_) {
-        var _previous: WeakWrapper_? = previous
+    func _wrapMap(_ previous: inout ArrayWeakWrapper_?) -> ((Element) -> ArrayWeakWrapper_) {
+        var _previous: ArrayWeakWrapper_? = previous
         return {
             value in
-            let wrapper: WeakWrapper_ = WeakWrapper_(value: value, previous: _previous, delegate: self)
+            let wrapper: ArrayWeakWrapper_ = ArrayWeakWrapper_(value: value, previous: _previous, delegate: self)
             _previous = wrapper
             return wrapper
         }

@@ -27,30 +27,22 @@ extension WeakWrapper_ {
     var value: AnyObject? {
         return self._value
     }
-    
-    var index: Int {
-        return self._index
-    }
 }
 
 
 // MARK: Class Declaration
 class WeakWrapper_ {
     // Init
-    init(value: AnyObject, previous: WeakWrapper_?, delegate: WeakWrapperDelegate_?) {
+    init(value: AnyObject, delegate: WeakWrapperDelegate_?) {
         let val: AnyObject = value
         
         self._delegate = delegate
         self._value = val
-        self._previous = previous
-        previous?._next = self
-        
-        self._index = (previous?.index ?? -1) + 1
         
         objc_setAssociatedObject(
             val,
             &self._associationKey,
-            DeinitCallbackWrapper_(self._deinitDelegateCall),
+            DeinitCallbackWrapper_(self.deinitDelegateCall),
             .OBJC_ASSOCIATION_RETAIN
         )
     }
@@ -62,20 +54,24 @@ class WeakWrapper_ {
     // Private Variable Properties
     private var _associationKey: Void?
     
-    fileprivate var _index: Int = 0 {
-        didSet {
-            self._next?._index = self.index + 1
-        }
+    // // // // // // // // // // // // //
+    
+    // MARK: CustomDebugStringConvertible Helper
+    // (Declared in Class Declaration so it can be overridden)
+    var additionalDebugDescription: String {
+        return ""
     }
     
-    fileprivate var _next: WeakWrapper_?
-    fileprivate var _previous: WeakWrapper_?
+    // MARK: DeinitCallbackWrapper Callback
+    var deinitDelegateCall: (() -> Void) {
+        return self._deinitDelegateCall
+    }
 }
 
 
 // MARK: CustomStringConvertible
 extension WeakWrapper_: CustomStringConvertible {
-    var description: String {
+    final var description: String {
         return ??self._value
     }
 }
@@ -87,10 +83,8 @@ extension WeakWrapper_: CustomDebugStringConvertible {
         return
             "\(shortDescription(of: self))(" +
             "value: \(??self._value), " +
-            "index: \(self._index), " +
-            "previous: \(shortDescription(of: self._previous)), " +
-            "next: \(shortDescription(of: self._next)), " +
-            "delegate: \(shortDescription(of: self._delegate)))"
+            "delegate: \(shortDescription(of: self._delegate))" +
+            "\(self.additionalDebugDescription))"
     }
 }
 
@@ -100,10 +94,7 @@ extension WeakWrapper_: CustomDebugStringConvertible {
 private extension WeakWrapper_ {
     var _deinitDelegateCall: (() -> Void) {
         return {
-            self._previous?._next = self._next
-            self._next?._previous = self._previous
-            self._next?._index -= 1
-            self._delegate?.didDisconnect(weakWrapper: self)
+            self.delegate?.didDisconnect(weakWrapper: self)
         }
     }
 }
