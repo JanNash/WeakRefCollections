@@ -11,15 +11,14 @@ import XCTest
 
 
 class WeakWrapperTests: WRCMetaTest {
-    
     func testValueIsStoredWeakly1() {
-        let weak: WeakWrapper_ = WeakWrapper_(value: Foo(), previous: nil, delegate: nil)
+        let weak: WeakWrapper_ = WeakWrapper_(value: Foo(), delegate: nil)
         XCTAssert(weak.value == nil)
     }
     
     func testValueIsStoredWeakly2() {
         var foo: Foo? = Foo()
-        let weak2: WeakWrapper_ = WeakWrapper_(value: foo!, previous: nil, delegate: nil)
+        let weak2: WeakWrapper_ = WeakWrapper_(value: foo!, delegate: nil)
         XCTAssert(weak2.value != nil)
         foo = nil
         XCTAssert(weak2.value == nil)
@@ -44,7 +43,7 @@ class WeakWrapperTests: WRCMetaTest {
         let del: Bar = Bar()
         del.callback = expectation.fulfill
         
-        _ = WeakWrapper_(value: Foo(), previous: nil, delegate: del)
+        _ = WeakWrapper_(value: Foo(), delegate: del)
         
         self.waitForExpectations(timeout: 0.1)
     }
