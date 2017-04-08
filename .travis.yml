@@ -9,9 +9,8 @@ cache:
   - bundler
   - cocoapods
 
-before_install:
-  - gem install bundler
-  - bundle install
+install:
+  - bundle install 
   - pod install
 
 script:
