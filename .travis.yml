@@ -10,8 +10,6 @@ cache:
   - cocoapods
 
 before_install:
-  - gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-  - rvm get head
   - gem install bundler
   - bundle install
   - pod install
