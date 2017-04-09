@@ -64,14 +64,14 @@ extension WeakRefArray: CustomDebugStringConvertible {
 }
 
 
-/// Returns `true` if these WeakRefArrays contain the same elements.
-public func ==<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable {
-    return lhs._array as! [Element] == rhs._array as! [Element]
+// MARK: Pseudo-Equatable
+// Waiting for https://github.com/apple/swift-evolution/blob/master/proposals/0143-conditional-conformances.md
+public func ==<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable  {
+    return lhs._array.elementsEqual(rhs._array, by: { $0.0.value == $0.1.value })
 }
 
-/// Returns `true` if these WeakRefArrays do not contain the same elements.
 public func !=<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable {
-    return lhs._array as! [Element] != rhs._array as! [Element]
+    return !(lhs == rhs)
 }
 
 

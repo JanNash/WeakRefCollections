@@ -89,14 +89,14 @@ extension WeakWrapper_: CustomDebugStringConvertible {
 }
 
 
-// MARK: Equatable
-extension WeakWrapper_ where Value : Equatable {}
+// MARK: Pseudo-Equatable
+// Waiting for https://github.com/apple/swift-evolution/blob/master/proposals/0143-conditional-conformances.md
 func ==<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable {
-    return lhs._value == rhs._value
+    return lhs.value == rhs.value
 }
 
-func !=<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable {
-    return lhs._value != rhs._value
+func !=<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable  {
+    return lhs.value != rhs.value
 }
 
 

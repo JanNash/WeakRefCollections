@@ -9,7 +9,7 @@
 import Foundation
 
 
-class EquatableFoo: Equatable {
+class EquatableFoo {
     init(value: Int) {
         self.value = value
     }
@@ -17,6 +17,8 @@ class EquatableFoo: Equatable {
     var value: Int
 }
 
-func ==(lhs: EquatableFoo, rhs: EquatableFoo) -> Bool {
-    return lhs.value == rhs.value
+extension EquatableFoo: Equatable {
+    static func ==(lhs: EquatableFoo, rhs: EquatableFoo) -> Bool {
+        return lhs.value == rhs.value
+    }
 }
