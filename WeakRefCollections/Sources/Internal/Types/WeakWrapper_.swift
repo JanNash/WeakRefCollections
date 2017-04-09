@@ -6,7 +6,6 @@
 //  Copyright © 2016 JanNash. All rights reserved.
 //
 
-import Foundation
 
 
 // MARK: // Internal
