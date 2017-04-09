@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		507891552FFCD2E9FD0572D02CA3AE0E /* DeinitCallbackWrapper_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70768DB0984E3A1DD53362F5A4B3449C /* DeinitCallbackWrapper_.swift */; };
-		84E341DF9F69D866799BCD67CC80DDFF /* Pods_WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */; };
-		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
-		D5BD569B4BB35B543A5A8C656106A979 /* WRCMetaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */; };
-		F36066F63E821ED97F5AD03AE6536FC2 /* WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */; };
-		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2BD43796BCBFC6383ED51C6974AEEB3B /* WeakWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FA1102864128E2631976098E78A90B /* WeakWrapperTests.swift */; };
 		4BA8CCB57676AD674A35A2DF45FD5EFF /* WeakWrapper_.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */; };
+		507891552FFCD2E9FD0572D02CA3AE0E /* DeinitCallbackWrapper_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70768DB0984E3A1DD53362F5A4B3449C /* DeinitCallbackWrapper_.swift */; };
+		84E341DF9F69D866799BCD67CC80DDFF /* Pods_WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */; };
+		93201DFC1B2D7D631F6C55C0CD37602B /* WeakRefCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5BD569B4BB35B543A5A8C656106A979 /* WRCMetaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */; };
+		DE8668E1CCC57C0C0CA2EEA2CDF87346 /* Pods_WeakRefCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */; };
+		F36066F63E821ED97F5AD03AE6536FC2 /* WeakRefCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,21 +28,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045CB6D8658B7C73AA744E34E2A36880 /* Pods-WeakRefCollections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.release.xcconfig"; sourceTree = "<group>"; };
+		16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		581506A767329EC521373B24279E925E /* Pods-WeakRefCollectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.release.xcconfig"; sourceTree = "<group>"; };
+		6ACF9C7EDAEBD034895348C9AFCF09F1 /* Pods-WeakRefCollectionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WRCMetaTest.swift; sourceTree = "<group>"; };
 		70768DB0984E3A1DD53362F5A4B3449C /* DeinitCallbackWrapper_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeinitCallbackWrapper_.swift; sourceTree = "<group>"; };
+		71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7314C5ADF2BE7160C3CFD393E6C31E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A459FF64704D8772EF0C4E96C8E192F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.debug.xcconfig"; sourceTree = "<group>"; };
-		045CB6D8658B7C73AA744E34E2A36880 /* Pods-WeakRefCollections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.release.xcconfig"; sourceTree = "<group>"; };
-		6ACF9C7EDAEBD034895348C9AFCF09F1 /* Pods-WeakRefCollectionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		581506A767329EC521373B24279E925E /* Pods-WeakRefCollectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BD2FD508C01298ECFB597528E424E0E5 /* Pods_WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71F7D58FD72A9F12DC6F35A8BF60764F /* Pods_WeakRefCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeakRefCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DC8EC2EB97FEFE612E6896866A699AF /* WRCMetaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WRCMetaTest.swift; sourceTree = "<group>"; };
-		16DF9F4044E7411C0BEC777EB1737F68 /* WeakRefCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeakRefCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29BE517CA485F692044B78C1E7A7565 /* WeakRefCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakRefCollections.h; sourceTree = "<group>"; };
+		C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper_.swift; sourceTree = "<group>"; };
 		D51F8F2C5A9CA10E8E342E66E420F4A4 /* WeakRefCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeakRefCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FA1102864128E2631976098E78A90B /* WeakWrapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapperTests.swift; sourceTree = "<group>"; };
-		C6D1F330E38E388EAB0B20093A278A87 /* WeakWrapper_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper_.swift; sourceTree = "<group>"; };
+		F1FC6333BDCC99421F545E1111AD66AC /* Pods-WeakRefCollections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeakRefCollections.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,8 +398,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WeakRefCollections/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -448,8 +446,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.0.1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_COMPATIBILITY_VERSION = 0.0.1;
+				DYLIB_CURRENT_VERSION = 0.0.1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -485,8 +485,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WeakRefCollections/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -523,8 +521,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.0.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 0.0.1;
+				DYLIB_CURRENT_VERSION = 0.0.1;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
