@@ -1,137 +1,36 @@
-#
-#  Be sure to run `pod spec lint WeakRefCollections.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
-#
-#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
 
 Pod::Spec.new do |s|
-
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-
   s.name         = "WeakRefCollections"
   s.version      = "0.0.1"
-  s.summary      = "A short description of WeakRefCollections."
-
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary      = "A lightweight ensemble of nifty Swift Collections that support weak references to their elements."
   s.description  = <<-DESC
+                   Unfortunately, Swift does not (yet?) have built-in (native) Collections (As in 'the Collection protocol'
+                   -> Arrays, Sets, Dictionaries) that support weak references to their elements. Sure, there's NSMapTable
+                   and NSHashTable. Have you ever tried to work with these? for-in iteration? Nope. .forEach()? Nope.
+                   Nifty functional programming with higher order functions like .map(), .reduce() and .filter()? Nope.
+
+                   By using .allObjects or resorting to NSEnumerators, you can achieve these functionalities, too, you might say...
+                   But you're using Swift now. You don't want to have to do that, do you? You want lightweight, readable syntax,
+                   no annoying hacks and workarounds. Maybe you're even writing a server application, so you don't want to have
+                   to import Foundation.
+
+                   This framework is (will be) a humble attempt to provide Collections that properly support weak references
+                   to their elements. Not only a pseudo-Set (NSHashTable) and a convoluted Dictionary (NSMapTable).
+                   An Array, a Set, a Dictionary, a bidirectional Dictionary and the protocol-conformances one would
+                   expect from those types.
                    DESC
 
-  s.homepage     = "http://EXAMPLE/WeakRefCollections"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
-
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
-
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-
-
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you'd rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
-
+  s.homepage     = "https://github.com/JanNash/WeakRefCollections"
+  s.license      = "MIT"
   s.author             = { "Jan Nash" => "jnash@jnash.de" }
-  # Or just: s.author    = "Jan Nash"
-  # s.authors            = { "Jan Nash" => "jnash@jnash.de" }
-  # s.social_media_url   = "http://twitter.com/Jan Nash"
+  s.social_media_url   = "http://twitter.com/JanPNash"
 
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
-
-  # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
-
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
+  s.ios.deployment_target = "8.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
 
-
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
-
-  s.source       = { :git => "http://EXAMPLE/WeakRefCollections.git", :tag => "#{s.version}" }
-
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
-
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
-
-  # s.public_header_files = "Classes/**/*.h"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-  # s.requires_arc = true
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.source       = { :git => "https://github.com/JanNash/WeakRefCollections.git", :tag => "v#{s.version}" }
+  s.source_files  = "Sources/**/*.swift"
 
 end
