@@ -10,24 +10,17 @@ import XCTest
 @testable import WeakRefCollections
 
 
-class WeakRefArrayTests: WRCMetaTest {
-    func testSomething() {
-        let a: Foo = Foo()
-        let b: Foo = Foo()
-        let c: Foo = Foo()
-        var d: Foo = Foo()
-        var e: Foo = Foo()
-        
-        let ary: WeakRefArray<Foo> = [a, b, c, d, e]
-        
-        print(ary)
-        debugPrint(ary)
-        
-        d = Foo()
-        e = Foo()
-        
-        print(ary)
-        debugPrint(ary)
-
+class WeakRefArrayTests: BaseTest {
+    func testArrayLiteralConversion1() {
+        let ary1: WeakRefArray<Foo> = []
+        let ary2: WeakRefArray<Foo> = WeakRefArray()
+        XCTAssert(ary1 == ary2)
+    }
+    
+    
+    
+    func testEmptyArray() {
+        let ary: WeakRefArray<Foo> = []
+        XCTAssert(ary.isEmpty)
     }
 }

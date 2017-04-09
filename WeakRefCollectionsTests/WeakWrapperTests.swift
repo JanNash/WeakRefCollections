@@ -10,7 +10,7 @@ import XCTest
 @testable import WeakRefCollections
 
 
-class WeakWrapperTests: WRCMetaTest {
+class WeakWrapperTests: BaseTest {
     func testValueIsStoredWeakly1() {
         let weak: WeakWrapper_ = WeakWrapper_(value: Foo(), delegate: nil)
         XCTAssert(weak.value == nil)

@@ -1,5 +1,5 @@
 //
-//  WRCMetaTest.swift
+//  BaseTest.swift
 //  WeakRefCollectionsTests
 //
 //  Created by Jan Nash on 12/8/16.
@@ -10,4 +10,4 @@ import XCTest
 @testable import WeakRefCollections
 
 
-class WRCMetaTest: XCTestCase {}
+class BaseTest: XCTestCase {}
