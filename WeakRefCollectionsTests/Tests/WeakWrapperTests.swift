@@ -47,4 +47,26 @@ class WeakWrapperTests: BaseTest {
         
         self.waitForExpectations(timeout: 0.1)
     }
+    
+    func testEquatableEqualValueEqual() {
+        let foo1: EquatableFoo = EquatableFoo(value: 1)
+        let foo2: EquatableFoo = EquatableFoo(value: 1)
+        
+        let weak1: WeakWrapper_<EquatableFoo> = WeakWrapper_(value: foo1, delegate: nil)
+        let weak2: WeakWrapper_<EquatableFoo> = WeakWrapper_(value: foo2, delegate: nil)
+        
+        XCTAssertTrue(weak1 == weak2)
+        XCTAssertFalse(weak1 != weak2)
+    }
+    
+    func testEquatableNotEqualValueNotEqual() {
+        let foo1: EquatableFoo = EquatableFoo(value: 1)
+        let foo2: EquatableFoo = EquatableFoo(value: 2)
+        
+        let weak1: WeakWrapper_<EquatableFoo> = WeakWrapper_(value: foo1, delegate: nil)
+        let weak2: WeakWrapper_<EquatableFoo> = WeakWrapper_(value: foo2, delegate: nil)
+        
+        XCTAssertFalse(weak1 == weak2)
+        XCTAssertTrue(weak1 != weak2)
+    }
 }
