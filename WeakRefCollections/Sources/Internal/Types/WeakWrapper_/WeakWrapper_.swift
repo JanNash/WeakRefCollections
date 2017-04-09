@@ -12,7 +12,7 @@
 // MARK: - WeakWrapperDelegate_
 // MARK: Protocol Declaration
 protocol WeakWrapperDelegate_: class {
-    func didDisconnect(weakWrapper: WeakWrapper_)
+    func didDisconnect<Value>(weakWrapper: WeakWrapper_<Value>)
 }
 
 
@@ -24,17 +24,17 @@ extension WeakWrapper_ {
         return self._delegate
     }
     
-    var value: AnyObject? {
+    var value: Value? {
         return self._value
     }
 }
 
 
 // MARK: Class Declaration
-class WeakWrapper_ {
+class WeakWrapper_<Value: AnyObject> {
     // Init
-    init(value: AnyObject, delegate: WeakWrapperDelegate_?) {
-        let val: AnyObject = value
+    init(value: Value, delegate: WeakWrapperDelegate_?) {
+        let val: Value = value
         
         self._delegate = delegate
         self._value = val
@@ -49,7 +49,7 @@ class WeakWrapper_ {
     
     // Private Weak Variable Properties
     fileprivate weak var _delegate: WeakWrapperDelegate_?
-    fileprivate weak var _value: AnyObject?
+    fileprivate weak var _value: Value?
     
     // Private Variable Properties
     private var _associationKey: Void?
@@ -86,6 +86,17 @@ extension WeakWrapper_: CustomDebugStringConvertible {
             "delegate: \(shortDescription(of: self._delegate))" +
             "\(self.additionalDebugDescription))"
     }
+}
+
+
+// MARK: Equatable
+extension WeakWrapper_ where Value : Equatable {}
+func ==<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable {
+    return lhs._value == rhs._value
+}
+
+func !=<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable {
+    return lhs._value != rhs._value
 }
 
 

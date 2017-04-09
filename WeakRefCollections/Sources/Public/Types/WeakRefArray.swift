@@ -18,18 +18,18 @@ public class WeakRefArray<Element: AnyObject> {
     }
     
     required public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
-        var previous: ArrayWeakWrapper_? = nil
+        var previous: ArrayWeakWrapper_<Element>? = nil
         self._array = s.map(self._wrapMap(&previous))
     }
     
     // ExpressibleByArrayLiteral Implementation
     required public init(arrayLiteral elements: Element...) {
-        var previous: ArrayWeakWrapper_? = nil
+        var previous: ArrayWeakWrapper_<Element>? = nil
         self._array = elements.map(self._wrapMap(&previous))
     }
     
     // Private Variable Properties
-    fileprivate var _array: [ArrayWeakWrapper_] = []
+    fileprivate var _array: [ArrayWeakWrapper_<Element>] = []
 }
 
 
@@ -64,9 +64,20 @@ extension WeakRefArray: CustomDebugStringConvertible {
 }
 
 
+/// Returns `true` if these WeakRefArrays contain the same elements.
+public func ==<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable {
+    return lhs._array as! [Element] == rhs._array as! [Element]
+}
+
+/// Returns `true` if these WeakRefArrays do not contain the same elements.
+public func !=<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable {
+    return lhs._array as! [Element] != rhs._array as! [Element]
+}
+
+
 // MARK: WeakWrapperDelegate
 extension WeakRefArray: WeakWrapperDelegate_ {
-    func didDisconnect(weakWrapper: WeakWrapper_) {
+    func didDisconnect<Element>(weakWrapper: WeakWrapper_<Element>) {
         self._array.remove(at: (weakWrapper as! ArrayWeakWrapper_).index)
     }
 }
@@ -87,7 +98,7 @@ extension WeakRefArray: Collection {
     }
     
     public subscript(index: Int) -> Element {
-        return self._array[index].value as! Element
+        return self._array[index].value!
     }
 }
 
@@ -95,7 +106,7 @@ extension WeakRefArray: Collection {
 // MARK: RangeReplaceableCollection
 extension WeakRefArray: RangeReplaceableCollection {
     public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
-        var previous: ArrayWeakWrapper_? = nil
+        var previous: ArrayWeakWrapper_<Element>? = nil
         self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
     }
 }
@@ -104,7 +115,7 @@ extension WeakRefArray: RangeReplaceableCollection {
 // MARK: // Private
 // MARK: Wrapping Helper Function
 private extension WeakRefArray {
-    func _wrapMap(_ previous: inout ArrayWeakWrapper_?) -> ((Element) -> ArrayWeakWrapper_) {
+    func _wrapMap(_ previous: inout ArrayWeakWrapper_<Element>?) -> ((Element) -> ArrayWeakWrapper_<Element>) {
         var _previous: ArrayWeakWrapper_? = previous
         return {
             value in

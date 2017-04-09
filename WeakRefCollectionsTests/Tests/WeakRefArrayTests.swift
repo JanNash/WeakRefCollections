@@ -12,8 +12,12 @@ import XCTest
 
 class WeakRefArrayTests: BaseTest {
     func testArrayLiteralConversion1() {
-        let ary1: WeakRefArray<Foo> = []
-        let ary2: WeakRefArray<Foo> = WeakRefArray()
+        let ary1: WeakRefArray<EquatableByIdentityFoo> = []
+        let ary2: WeakRefArray<EquatableByIdentityFoo> = WeakRefArray()
+        
+        // This doesn't compile and I don't get why...
+//        XCTAssertEqual(ary1, ary2)
+        
         XCTAssert(ary1 == ary2)
     }
     

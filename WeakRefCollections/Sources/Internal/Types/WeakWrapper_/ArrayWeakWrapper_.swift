@@ -21,9 +21,9 @@ extension ArrayWeakWrapper_ {
 
 
 // MARK: Class Declaration
-class ArrayWeakWrapper_: WeakWrapper_ {
+class ArrayWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     // Init
-    init(value: AnyObject, previous: ArrayWeakWrapper_?, delegate: WeakWrapperDelegate_?) {
+    init(value: Value, previous: ArrayWeakWrapper_?, delegate: WeakWrapperDelegate_?) {
         self._index = (previous?.index ?? -1) + 1
         
         super.init(value: value, delegate: delegate)
