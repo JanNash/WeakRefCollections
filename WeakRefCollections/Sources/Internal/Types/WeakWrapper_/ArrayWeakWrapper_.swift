@@ -24,7 +24,7 @@ extension ArrayWeakWrapper_ {
 class ArrayWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     // Init
     init(value: Value, previous: ArrayWeakWrapper_?, delegate: WeakWrapperDelegate_?) {
-        self._index = (previous?.index ?? -1) + 1
+        self.__index = (previous?.index ?? -1) + 1
         
         super.init(value: value, delegate: delegate)
         
@@ -33,17 +33,12 @@ class ArrayWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     }
     
     // Private Variable Properties
-    fileprivate var _index: Int {
-        didSet {
-            self._next?._index = self.index + 1
-        }
-    }
-    
+    fileprivate var __index: Int
     fileprivate var _next: ArrayWeakWrapper_?
     fileprivate var _previous: ArrayWeakWrapper_?
 
-    // // // // // // // // // // // // //
     
+    // MARK: Overrides
     // MARK: CustomDebugStringConvertible Helper Override
     override var additionalDebugDescription: String {
         return ", " +
@@ -65,6 +60,16 @@ class ArrayWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
 // MARK: // Private
 // MARK: Computed Properties
 private extension ArrayWeakWrapper_ {
+    var _index: Int {
+        get {
+            return self.__index
+        }
+        set(newIndex) {
+            self.__index = newIndex
+            self._next?._index = newIndex + 1
+        }
+    }
+    
     var _deinitDelegateCall: (() -> Void) {
         return {
             self._next?._index = self._index
