@@ -11,7 +11,7 @@ import XCTest
 
 
 class ArrayWeakWrapperTests: BaseTest {
-    func testEquatableEqualValueEqual() {
+    func testEquatableEqualIfValueEqual() {
         let foo1: EquatableFoo = EquatableFoo(value: 1)
         let foo2: EquatableFoo = EquatableFoo(value: 1)
         
@@ -22,12 +22,12 @@ class ArrayWeakWrapperTests: BaseTest {
         XCTAssertFalse(weak1 != weak2)
     }
     
-    func testEquatableNotEqualValueNotEqual() {
+    func testEquatableNotEqualIfValueNotEqual() {
         let foo1: EquatableFoo = EquatableFoo(value: 1)
         let foo2: EquatableFoo = EquatableFoo(value: 2)
         
-        let weak1: ArrayWeakWrapper_<EquatableFoo> = ArrayWeakWrapper_(value: foo1, previous: nil,delegate: nil)
-        let weak2: ArrayWeakWrapper_<EquatableFoo> = ArrayWeakWrapper_(value: foo2, previous: nil,delegate: nil)
+        let weak1: ArrayWeakWrapper_<EquatableFoo> = ArrayWeakWrapper_(value: foo1, previous: nil, delegate: nil)
+        let weak2: ArrayWeakWrapper_<EquatableFoo> = ArrayWeakWrapper_(value: foo2, previous: nil, delegate: nil)
         
         XCTAssertFalse(weak1 == weak2)
         XCTAssertTrue(weak1 != weak2)

@@ -8,8 +8,8 @@
 
 
 
-// MARK: // Internal
-// MARK: - WeakWrapperDelegate_
+// MARK: - // Internal -
+// MARK: WeakWrapperDelegate_
 // MARK: Protocol Declaration
 protocol WeakWrapperDelegate_: class {
     func didDisconnect<Value>(weakWrapper: WeakWrapper_<Value>)
@@ -54,7 +54,6 @@ class WeakWrapper_<Value: AnyObject> {
     // Private Variable Properties
     private var _associationKey: Void?
     
-    // // // // // // // // // // // // //
     
     // MARK: CustomDebugStringConvertible Helper
     // (Declared in Class Declaration so it can be overridden)
@@ -100,7 +99,7 @@ func !=<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where
 }
 
 
-// MARK: // Private
+// MARK: - // Private -
 // MARK: Computed Properties
 private extension WeakWrapper_ {
     var _deinitDelegateCall: (() -> Void) {
