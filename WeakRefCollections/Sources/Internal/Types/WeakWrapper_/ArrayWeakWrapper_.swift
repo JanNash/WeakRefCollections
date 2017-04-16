@@ -6,8 +6,6 @@
 //  Copyright © 2017 JanNash. All rights reserved.
 //
 
-import Foundation
-
 
 // MARK: // Internal
 // MARK: - ArrayWeakWrapper_
