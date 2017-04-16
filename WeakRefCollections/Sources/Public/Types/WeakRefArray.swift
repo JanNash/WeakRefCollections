@@ -11,9 +11,7 @@
 // MARK: Class Declaration
 public class WeakRefArray<Element: AnyObject> {
     // Array Inits
-    required public init() {
-        self._array = []
-    }
+    required public init() {}
     
     required public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
         var previous: ArrayWeakWrapper_<Element>? = nil
@@ -32,16 +30,14 @@ public class WeakRefArray<Element: AnyObject> {
 
 
 // MARK: ExpressibleByArrayLiteral
-// (Implementation in class declaration)
+// (Implementation in Class Declaration)
 extension WeakRefArray: ExpressibleByArrayLiteral {}
 
 
 // MARK: CustomStringConvertible
 extension WeakRefArray: CustomStringConvertible {
     public var description: String {
-        let arrayOfDescriptions: [String] = self._array.map({ String(describing: $0) })
-        let joinedArrayDescription: String = arrayOfDescriptions.joined(separator: ", ")
-        return "WeakRefArray[\(joinedArrayDescription)]"
+        return self._description
     }
 }
 
@@ -49,15 +45,7 @@ extension WeakRefArray: CustomStringConvertible {
 // MARK: CustomDebugStringConvertible
 extension WeakRefArray: CustomDebugStringConvertible {
     public var debugDescription: String {
-        let array: [ArrayWeakWrapper_] = self._array
-        let count: Int = array.count
-        let debugDescriptions: [String] = array.map({ $0.debugDescription })
-        let joinedDebugDescriptions: String = debugDescriptions.joined(separator: ", \n    ")
-        return "WeakRefArray(" +
-            "count: \(count), " +
-            "array: [" +
-            "\n    \(joinedDebugDescriptions)" +
-        "])"
+        return self._debugDescription
     }
 }
 
@@ -65,19 +53,11 @@ extension WeakRefArray: CustomDebugStringConvertible {
 // MARK: Pseudo-Equatable
 // Waiting for https://github.com/apple/swift-evolution/blob/master/proposals/0143-conditional-conformances.md
 public func ==<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable  {
-    return lhs._array.elementsEqual(rhs._array, by: { $0.0.value == $0.1.value })
+    return lhs._array.elementsEqual(rhs._array, by: ==)
 }
 
 public func !=<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable {
     return !(lhs == rhs)
-}
-
-
-// MARK: WeakWrapperDelegate
-extension WeakRefArray: WeakWrapperDelegate_ {
-    func didDisconnect<Element>(weakWrapper: WeakWrapper_<Element>) {
-        self._array.remove(at: (weakWrapper as! ArrayWeakWrapper_).index)
-    }
 }
 
 
@@ -104,13 +84,55 @@ extension WeakRefArray: Collection {
 // MARK: RangeReplaceableCollection
 extension WeakRefArray: RangeReplaceableCollection {
     public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
-        var previous: ArrayWeakWrapper_<Element>? = nil
-        self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
+        self._replaceSubrange(subrange, with: newElements)
+    }
+}
+
+
+// MARK: // Internal
+// MARK: WeakWrapperDelegate
+extension WeakRefArray: WeakWrapperDelegate_ {
+    func didDisconnect<Element>(weakWrapper: WeakWrapper_<Element>) {
+        self._array.remove(at: (weakWrapper as! ArrayWeakWrapper_).index)
     }
 }
 
 
 // MARK: // Private
+// MARK: CustomStringConvertible Implementation
+private extension WeakRefArray/*: CustomStringConvertible*/ {
+    var _description: String {
+        let arrayOfDescriptions: [String] = self._array.map({ String(describing: $0) })
+        let joinedArrayDescription: String = arrayOfDescriptions.joined(separator: ", ")
+        return "WeakRefArray[\(joinedArrayDescription)]"
+    }
+}
+
+
+// MARK: CustomDebugStringConvertible Implementation
+private extension WeakRefArray/*: CustomDebugStringConvertible*/ {
+    var _debugDescription: String {
+        let array: [ArrayWeakWrapper_] = self._array
+        let count: Int = array.count
+        let debugDescriptions: [String] = array.map({ $0.debugDescription })
+        let joinedDebugDescriptions: String = debugDescriptions.joined(separator: ", \n    ")
+        return "WeakRefArray(" +
+            "count: \(count), " +
+            "array: [" +
+            "\n    \(joinedDebugDescriptions)" +
+        "])"
+    }
+}
+
+
+// MARK: RangeReplaceableCollection Implementation
+private extension WeakRefArray/*: RangeReplaceableCollection*/ {
+    func _replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
+        var previous: ArrayWeakWrapper_<Element>? = nil
+        self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
+    }
+}
+
 // MARK: Wrapping Helper Function
 private extension WeakRefArray {
     func _wrapMap(_ previous: inout ArrayWeakWrapper_<Element>?) -> ((Element) -> ArrayWeakWrapper_<Element>) {
