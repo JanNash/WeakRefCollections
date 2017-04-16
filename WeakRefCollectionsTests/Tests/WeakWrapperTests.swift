@@ -12,16 +12,16 @@ import XCTest
 
 class WeakWrapperTests: BaseTest {
     func testValueIsStoredWeakly1() {
-        let weak: WeakWrapper_ = WeakWrapper_(value: Foo(), delegate: nil)
-        XCTAssert(weak.value == nil)
+        let weakWrapper: WeakWrapper_ = WeakWrapper_(value: Foo(), delegate: nil)
+        XCTAssert(weakWrapper.value == nil)
     }
     
     func testValueIsStoredWeakly2() {
         var foo: Foo? = Foo()
-        let weak2: WeakWrapper_ = WeakWrapper_(value: foo!, delegate: nil)
-        XCTAssert(weak2.value != nil)
+        let weakWrapper: WeakWrapper_ = WeakWrapper_(value: foo!, delegate: nil)
+        XCTAssert(weakWrapper.value != nil)
         foo = nil
-        XCTAssert(weak2.value == nil)
+        XCTAssert(weakWrapper.value == nil)
     }
     
     func testDeinitDelegateCallback() {
@@ -48,7 +48,7 @@ class WeakWrapperTests: BaseTest {
         self.waitForExpectations(timeout: 0.1)
     }
     
-    func testEquatableEqualValueEqual() {
+    func testEquatableEqualIfValueEqual() {
         let foo1: EquatableFoo = EquatableFoo(value: 1)
         let foo2: EquatableFoo = EquatableFoo(value: 1)
         
@@ -59,7 +59,7 @@ class WeakWrapperTests: BaseTest {
         XCTAssertFalse(weak1 != weak2)
     }
     
-    func testEquatableNotEqualValueNotEqual() {
+    func testEquatableNotEqualIfValueNotEqual() {
         let foo1: EquatableFoo = EquatableFoo(value: 1)
         let foo2: EquatableFoo = EquatableFoo(value: 2)
         
