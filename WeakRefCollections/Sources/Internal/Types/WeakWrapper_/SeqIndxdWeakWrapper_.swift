@@ -39,10 +39,11 @@ class SeqIndxdWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     // MARK: Overrides
     // MARK: CustomDebugStringConvertible Helper Override
     override var additionalDebugDescription: String {
-        return ", " +
-            "index: \(self._index), " +
-            "previous: \(shortDescription(of: self._previous)), " +
+        return [
+            "index: \(self._index)",
+            "previous: \(shortDescription(of: self._previous))",
             "next: \(shortDescription(of: self._next))"
+        ].joined(separator: ", ")
     }
     
     // MARK: DeinitCallbackWrapper Callback Override
