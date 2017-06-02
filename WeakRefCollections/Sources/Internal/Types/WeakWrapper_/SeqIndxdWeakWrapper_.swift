@@ -1,5 +1,5 @@
 //
-//  ArrayWeakWrapper_.swift
+//  SeqIndxdWeakWrapper_.swift
 //  WeakRefCollections
 //
 //  Created by Jan Nash on 1/15/17.
@@ -8,9 +8,9 @@
 
 
 // MARK: // Internal
-// MARK: - ArrayWeakWrapper_
+// MARK: - SeqIndxdWeakWrapper_
 // MARK: Interface
-extension ArrayWeakWrapper_ {
+extension SeqIndxdWeakWrapper_ {
     // ReadOnly
     var index: Int {
         return self._index
@@ -19,9 +19,9 @@ extension ArrayWeakWrapper_ {
 
 
 // MARK: Class Declaration
-class ArrayWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
+class SeqIndxdWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     // Init
-    init(value: Value, previous: ArrayWeakWrapper_?, delegate: WeakWrapperDelegate_?) {
+    init(value: Value, previous: SeqIndxdWeakWrapper_?, delegate: WeakWrapperDelegate_?) {
         self.__index = (previous?.index ?? -1) + 1
         
         super.init(value: value, delegate: delegate)
@@ -32,8 +32,8 @@ class ArrayWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     
     // Private Variable Properties
     fileprivate var __index: Int
-    fileprivate var _next: ArrayWeakWrapper_?
-    fileprivate var _previous: ArrayWeakWrapper_?
+    fileprivate var _next: SeqIndxdWeakWrapper_?
+    fileprivate var _previous: SeqIndxdWeakWrapper_?
 
     
     // MARK: Overrides
@@ -57,7 +57,7 @@ class ArrayWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
 
 // MARK: // Private
 // MARK: Computed Properties
-private extension ArrayWeakWrapper_ {
+private extension SeqIndxdWeakWrapper_ {
     var _index: Int {
         get {
             return self.__index

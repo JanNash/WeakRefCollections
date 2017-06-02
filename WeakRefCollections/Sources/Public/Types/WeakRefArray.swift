@@ -14,18 +14,18 @@ public class WeakRefArray<Element: AnyObject> {
     required public init() {}
     
     required public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
-        var previous: ArrayWeakWrapper_<Element>? = nil
+        var previous: SeqIndxdWeakWrapper_<Element>? = nil
         self._array = s.map(self._wrapMap(&previous))
     }
     
     // ExpressibleByArrayLiteral Implementation
     required public init(arrayLiteral elements: Element...) {
-        var previous: ArrayWeakWrapper_<Element>? = nil
+        var previous: SeqIndxdWeakWrapper_<Element>? = nil
         self._array = elements.map(self._wrapMap(&previous))
     }
     
     // Private Variable Properties
-    fileprivate var _array: [ArrayWeakWrapper_<Element>] = []
+    fileprivate var _array: [SeqIndxdWeakWrapper_<Element>] = []
 }
 
 
@@ -93,7 +93,7 @@ extension WeakRefArray: RangeReplaceableCollection {
 // MARK: WeakWrapperDelegate
 extension WeakRefArray: WeakWrapperDelegate_ {
     func didDisconnect<Element>(weakWrapper: WeakWrapper_<Element>) {
-        self._array.remove(at: (weakWrapper as! ArrayWeakWrapper_).index)
+        self._array.remove(at: (weakWrapper as! SeqIndxdWeakWrapper_).index)
     }
 }
 
@@ -112,7 +112,7 @@ private extension WeakRefArray/*: CustomStringConvertible*/ {
 // MARK: CustomDebugStringConvertible Implementation
 private extension WeakRefArray/*: CustomDebugStringConvertible*/ {
     var _debugDescription: String {
-        let array: [ArrayWeakWrapper_] = self._array
+        let array: [SeqIndxdWeakWrapper_] = self._array
         let count: Int = array.count
         let debugDescriptions: [String] = array.map({ $0.debugDescription })
         let joinedDebugDescriptions: String = debugDescriptions.joined(separator: ", \n    ")
@@ -128,18 +128,18 @@ private extension WeakRefArray/*: CustomDebugStringConvertible*/ {
 // MARK: RangeReplaceableCollection Implementation
 private extension WeakRefArray/*: RangeReplaceableCollection*/ {
     func _replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
-        var previous: ArrayWeakWrapper_<Element>? = nil
+        var previous: SeqIndxdWeakWrapper_<Element>? = nil
         self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
     }
 }
 
 // MARK: Wrapping Helper Function
 private extension WeakRefArray {
-    func _wrapMap(_ previous: inout ArrayWeakWrapper_<Element>?) -> ((Element) -> ArrayWeakWrapper_<Element>) {
-        var _previous: ArrayWeakWrapper_? = previous
+    func _wrapMap(_ previous: inout SeqIndxdWeakWrapper_<Element>?) -> ((Element) -> SeqIndxdWeakWrapper_<Element>) {
+        var _previous: SeqIndxdWeakWrapper_? = previous
         return {
             value in
-            let wrapper: ArrayWeakWrapper_ = ArrayWeakWrapper_(value: value, previous: _previous, delegate: self)
+            let wrapper: SeqIndxdWeakWrapper_ = SeqIndxdWeakWrapper_(value: value, previous: _previous, delegate: self)
             _previous = wrapper
             return wrapper
         }
