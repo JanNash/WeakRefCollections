@@ -12,7 +12,6 @@
 public class WeakRefArray<Element: AnyObject> {
     // Array Inits
     required public init() {}
-    
     required public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
         var previous: SeqIndxdWeakWrapper_<Element>? = nil
         self._array = s.map(self._wrapMap(&previous))
@@ -138,8 +137,7 @@ private extension WeakRefArray {
     func _wrapMap(_ previous: inout SeqIndxdWeakWrapper_<Element>?) -> ((Element) -> SeqIndxdWeakWrapper_<Element>) {
         var _previous: SeqIndxdWeakWrapper_? = previous
         return {
-            value in
-            let wrapper: SeqIndxdWeakWrapper_ = SeqIndxdWeakWrapper_(value: value, previous: _previous, delegate: self)
+            let wrapper: SeqIndxdWeakWrapper_ = SeqIndxdWeakWrapper_(value: $0, previous: _previous, delegate: self)
             _previous = wrapper
             return wrapper
         }

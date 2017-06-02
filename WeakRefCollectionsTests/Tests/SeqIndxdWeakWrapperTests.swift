@@ -40,5 +40,47 @@ class SeqIndxdWeakWrapperTests: BaseTest {
         let foo: Foo = Foo()
         
         let weak1: Wrapper<Foo> = Wrapper(value: foo, previous: nil, delegate: nil)
+        
+        XCTAssertEqual(weak1.index, 0)
+    }
+    
+    func testIndicesWithThreeWrappers1() {
+        let foo1: EqFoo = EqFoo(value: 1)
+        var foo2: EqFoo? = EqFoo(value: 2)
+        let foo3: EqFoo = EqFoo(value: 3)
+        
+        let weak0: Wrapper<EqFoo> = Wrapper(value: foo1, previous: nil, delegate: nil)
+        let weak1: Wrapper<EqFoo> = Wrapper(value: foo2!, previous: weak0, delegate: nil)
+        let weak2: Wrapper<EqFoo> = Wrapper(value: foo3, previous: weak1, delegate: nil)
+        
+        XCTAssertEqual(weak0.index, 0)
+        XCTAssertEqual(weak1.index, 1)
+        XCTAssertEqual(weak2.index, 2)
+        
+        foo2 = nil
+        
+        XCTAssertEqual(weak0.index, 0)
+        XCTAssertEqual(weak1.index, 1)
+        XCTAssertEqual(weak2.index, 1)
+    }
+    
+    func testIndicesWithThreeWrappers2() {
+        var foo1: EqFoo? = EqFoo(value: 1)
+        let foo2: EqFoo = EqFoo(value: 2)
+        let foo3: EqFoo = EqFoo(value: 3)
+        
+        let weak0: Wrapper<EqFoo> = Wrapper(value: foo1!, previous: nil, delegate: nil)
+        let weak1: Wrapper<EqFoo> = Wrapper(value: foo2, previous: weak0, delegate: nil)
+        let weak2: Wrapper<EqFoo> = Wrapper(value: foo3, previous: weak1, delegate: nil)
+        
+        XCTAssertEqual(weak0.index, 0)
+        XCTAssertEqual(weak1.index, 1)
+        XCTAssertEqual(weak2.index, 2)
+        
+        foo1 = nil
+        
+        XCTAssertEqual(weak0.index, 0)
+        XCTAssertEqual(weak1.index, 0)
+        XCTAssertEqual(weak2.index, 1)
     }
 }
