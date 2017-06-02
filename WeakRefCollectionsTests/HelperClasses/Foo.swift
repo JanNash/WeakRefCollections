@@ -6,7 +6,5 @@
 //  Copyright © 2017 JanNash. All rights reserved.
 //
 
-import Foundation
-
 
 class Foo {}

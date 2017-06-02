@@ -6,8 +6,6 @@
 //  Copyright © 2017 JanNash. All rights reserved.
 //
 
-import Foundation
-
 
 class EquatableFoo {
     init(value: Int) {
