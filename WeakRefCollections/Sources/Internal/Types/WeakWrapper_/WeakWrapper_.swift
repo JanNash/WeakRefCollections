@@ -11,7 +11,7 @@
 // MARK: WeakWrapperDelegate_
 // MARK: Protocol Declaration
 protocol WeakWrapperDelegate_: class {
-    func didDisconnect<Value>(weakWrapper: WeakWrapper_<Value>)
+    func disconnected<Value>(weakWrapper: WeakWrapper_<Value>)
 }
 
 
@@ -103,7 +103,7 @@ func !=<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where
 private extension WeakWrapper_ {
     var _deinitDelegateCall: (() -> Void) {
         return {
-            self.delegate?.didDisconnect(weakWrapper: self)
+            self.delegate?.disconnected(weakWrapper: self)
         }
     }
 }

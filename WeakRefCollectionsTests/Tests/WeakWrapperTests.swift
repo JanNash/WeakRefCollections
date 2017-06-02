@@ -33,7 +33,7 @@ class WeakWrapperTests: BaseTest {
         )
         
         class Bar: WeakWrapperDelegate_ {
-            func didDisconnect<Foo>(weakWrapper: WeakWrapper_<Foo>) {
+            func disconnected<Foo>(weakWrapper: WeakWrapper_<Foo>) {
                 self.callback()
             }
             

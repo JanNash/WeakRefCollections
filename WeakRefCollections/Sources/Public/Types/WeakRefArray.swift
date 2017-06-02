@@ -92,7 +92,7 @@ extension WeakRefArray: RangeReplaceableCollection {
 // MARK: // Internal
 // MARK: WeakWrapperDelegate
 extension WeakRefArray: WeakWrapperDelegate_ {
-    func didDisconnect<Element>(weakWrapper: WeakWrapper_<Element>) {
+    func disconnected<Element>(weakWrapper: WeakWrapper_<Element>) {
         self._array.remove(at: (weakWrapper as! SeqIndxdWeakWrapper_).index)
     }
 }
