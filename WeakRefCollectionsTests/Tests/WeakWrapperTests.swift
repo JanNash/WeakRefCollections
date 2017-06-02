@@ -48,6 +48,28 @@ class WeakWrapperTests: BaseTest {
         self.waitForExpectations(timeout: 0.1)
     }
     
+    func testValueIsNilInDeinitDelegateCallback() {
+        let expectation: XCTestExpectation = self.expectation(
+            description: "Delegate was not called when value was deinitialized"
+        )
+        
+        class Bar: WeakWrapperDelegate_ {
+            func disconnected<Foo>(weakWrapper: WeakWrapper_<Foo>) {
+                XCTAssertNil(weakWrapper.value, "Value was not nil in deinit delegate callback")
+                self.callback()
+            }
+            
+            var callback: (() -> Void) = { fatalError() }
+        }
+        
+        let del: Bar = Bar()
+        del.callback = expectation.fulfill
+        
+        _ = WeakWrapper_(value: Foo(), delegate: del)
+        
+        self.waitForExpectations(timeout: 0.1)
+    }
+    
     func testEquatableEqualIfValueEqual() {
         let foo1: EquatableFoo = EquatableFoo(value: 1)
         let foo2: EquatableFoo = EquatableFoo(value: 1)
