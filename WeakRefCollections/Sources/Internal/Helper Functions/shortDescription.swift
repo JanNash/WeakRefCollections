@@ -36,7 +36,6 @@ private func _shortDescription(of object: AnyObject) -> String {
 private func _shortDescription(of object: AnyObject?) -> String {
     if let unwrappedObject: AnyObject = object {
         return _shortDescription(of: unwrappedObject)
-    } else {
-        return "nil"
     }
+    return "nil"
 }
