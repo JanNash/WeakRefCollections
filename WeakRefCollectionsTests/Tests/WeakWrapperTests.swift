@@ -91,4 +91,14 @@ class WeakWrapperTests: BaseTest {
         XCTAssertFalse(weak1 == weak2)
         XCTAssertTrue(weak1 != weak2)
     }
+    
+    func testDescription() {
+        let description: String = WeakWrapper_(value: Foo(), delegate: nil).description
+        XCTAssertFalse(description.isEmpty)
+    }
+    
+    func testDebugDescription() {
+        let debugDescription: String = WeakWrapper_(value: Foo(), delegate: nil).debugDescription
+        XCTAssertFalse(debugDescription.isEmpty)
+    }
 }

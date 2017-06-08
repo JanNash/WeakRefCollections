@@ -72,4 +72,51 @@ class WeakRefArrayTests: BaseTest {
         
         XCTAssertTrue(ary1 != ary2)
     }
+    
+    func testIndexAfter() {
+        let foo1: EquatableFoo = EquatableFoo(value: 1)
+        let foo2: EquatableFoo = EquatableFoo(value: 2)
+        
+        let ary: WeakRefArray<EquatableFoo> = [foo1, foo2]
+        guard let index: Int = ary.index(of: foo1) else {
+            XCTFail()
+            return
+        }
+        
+        let indexAfter: Int = ary.index(after: index)
+        
+        XCTAssertNotEqual(index, indexAfter)
+    }
+    
+    func testDescription() {
+        var ary: WeakRefArray<EquatableFoo> = []
+        let description: String = ary.description
+        XCTAssertFalse(description.isEmpty)
+        
+        let count: Int = description.characters.count
+        let foo: EquatableFoo = EquatableFoo(value: 1)
+        ary.append(foo)
+        
+        let newDescription: String = ary.description
+        XCTAssertFalse(newDescription.isEmpty)
+        
+        let newCount: Int = newDescription.characters.count
+        XCTAssertNotEqual(count, newCount)
+    }
+    
+    func testDebugDescription() {
+        var ary: WeakRefArray<EquatableFoo> = []
+        let description: String = ary.debugDescription
+        XCTAssertFalse(description.isEmpty)
+        
+        let count: Int = description.characters.count
+        let foo: EquatableFoo = EquatableFoo(value: 1)
+        ary.append(foo)
+        
+        let newDescription: String = ary.debugDescription
+        XCTAssertFalse(newDescription.isEmpty)
+        
+        let newCount: Int = newDescription.characters.count
+        XCTAssertNotEqual(count, newCount)
+    }
 }

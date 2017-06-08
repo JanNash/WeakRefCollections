@@ -83,4 +83,9 @@ class SeqIndxdWeakWrapperTests: BaseTest {
         XCTAssertEqual(weak1.index, 0)
         XCTAssertEqual(weak2.index, 1)
     }
+    
+    func testAdditionalDebugDescription() {
+        let additionalDebugDescription: String = Wrapper(value: Foo(), previous: nil, delegate: nil).additionalDebugDescription
+        XCTAssertFalse(additionalDebugDescription.isEmpty)
+    }
 }
