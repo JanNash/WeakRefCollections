@@ -6,7 +6,7 @@
 //  Copyright © 2016 JanNash. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for WeakRefCollections.
 FOUNDATION_EXPORT double WeakRefCollectionsVersionNumber;
