@@ -17,13 +17,19 @@ protocol WeakWrapperDelegate_: class {
 // MARK: - WeakWrapper_
 // MARK: Interface
 extension WeakWrapper_ {
-    // ReadOnly (Set In Init)
-    var delegate: WeakWrapperDelegate_? {
-        return self._delegate
-    }
-    
+    // Readonly
     var value: Value? {
         return self._value
+    }
+    
+    // ReadWrite
+    var delegate: WeakWrapperDelegate_? {
+        get {
+            return self._delegate
+        }
+        set(newDelegate) {
+            self._delegate = newDelegate
+        }
     }
 }
 
