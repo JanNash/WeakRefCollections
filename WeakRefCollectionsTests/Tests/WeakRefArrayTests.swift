@@ -88,6 +88,24 @@ class WeakRefArrayTests: BaseTest {
         XCTAssertNotEqual(index, indexAfter)
     }
     
+    func testRemovingElementManually() {
+        var foo1: EquatableFoo? = EquatableFoo(value: 1)
+        let foo2: EquatableFoo = EquatableFoo(value: 2)
+        
+        var ary1: WeakRefArray<EquatableFoo> = [foo1!, foo2]
+        
+        guard let index: Int = ary1.index(of: foo1!) else {
+            XCTFail()
+            return
+        }
+        
+        ary1.remove(at: index)
+        
+        foo1 = nil
+        
+        XCTAssertEqual(ary1.count, 1)
+    }
+    
     func testDescription() {
         var ary: WeakRefArray<EquatableFoo> = []
         let description: String = ary.description
