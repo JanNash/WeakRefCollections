@@ -20,6 +20,6 @@ class DeinitCallbackWrapper_ {
         self._deinitCallback()
     }
     
-    // Private Variable Properties
+    // Private Variables
     private var _deinitCallback: (() -> Void)
 }

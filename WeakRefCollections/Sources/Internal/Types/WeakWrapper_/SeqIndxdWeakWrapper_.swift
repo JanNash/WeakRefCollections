@@ -8,7 +8,6 @@
 
 
 // MARK: // Internal
-// MARK: - SeqIndxdWeakWrapper_
 // MARK: Interface
 extension SeqIndxdWeakWrapper_ {
     // ReadOnly
@@ -30,7 +29,7 @@ class SeqIndxdWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
         previous?._next = self
     }
     
-    // Private Variable Properties
+    // Private Variables
     fileprivate var __index: Int
     fileprivate var _next: SeqIndxdWeakWrapper_?
     fileprivate var _previous: SeqIndxdWeakWrapper_?
@@ -57,7 +56,7 @@ class SeqIndxdWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
 
 
 // MARK: // Private
-// MARK: Computed Properties
+// MARK: Computed Variables
 private extension SeqIndxdWeakWrapper_ {
     var _index: Int {
         get {

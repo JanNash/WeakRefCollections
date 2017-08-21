@@ -23,7 +23,7 @@ public class WeakRefArray<Element: AnyObject> {
         self._array = elements.map(self._wrapMap(&previous))
     }
     
-    // Private Variable Properties
+    // Private Variables
     fileprivate var _array: [SeqIndxdWeakWrapper_<Element>] = []
 }
 
@@ -127,6 +127,9 @@ private extension WeakRefArray/*: CustomDebugStringConvertible*/ {
 // MARK: RangeReplaceableCollection Implementation
 private extension WeakRefArray/*: RangeReplaceableCollection*/ {
     func _replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
+        let oldElements: ArraySlice<SeqIndxdWeakWrapper_<Element>> = self._array[subrange]
+        oldElements.forEach({ $0.delegate = nil })
+        
         var previous: SeqIndxdWeakWrapper_<Element>? = nil
         self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
     }
