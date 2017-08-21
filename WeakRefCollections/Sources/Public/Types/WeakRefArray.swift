@@ -23,7 +23,7 @@ public class WeakRefArray<Element: AnyObject> {
         self._array = elements.map(self._wrapMap(&previous))
     }
     
-    // Private Variable Properties
+    // Private Variables
     fileprivate var _array: [SeqIndxdWeakWrapper_<Element>] = []
 }
 
