@@ -255,7 +255,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0EA21627A4FEDB8219DB3AAA8CAA86D /* Build configuration list for PBXNativeTarget "WeakRefCollectionsTests" */;
 			buildPhases = (
-				99EC17879ED21ECA1A6F0D3D575B3BAD /* [CP] Check Pods Manifest.lock */,
+				BA48E11FCA40F755B4FC20C8461F2BC6 /* [CP] Check Pods Manifest.lock */,
 				72A78BDF6CD03CFBD226466EFB029A89 /* Sources */,
 				6FC82444454D066A31516C8E8B8B2EF9 /* Frameworks */,
 				7E7EE5DD0B2100B64F2CBB4B5B61CAAB /* Resources */,
@@ -276,7 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5AB07F08162D8CF18109EEAF19209C3 /* Build configuration list for PBXNativeTarget "WeakRefCollections" */;
 			buildPhases = (
-				711050FAB063E760063854F86BA694D4 /* [CP] Check Pods Manifest.lock */,
+				59CC33AF6574AF75D7483A0E0BC9BC86 /* [CP] Check Pods Manifest.lock */,
 				6E5460A49D313430EF0710C40EADA3F1 /* Sources */,
 				8DADFD2A09B1FF00C79FDBB60F78513C /* Frameworks */,
 				8D2998EAD4E029F8ED87926C3FD9199F /* Headers */,
@@ -350,7 +350,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		711050FAB063E760063854F86BA694D4 /* [CP] Check Pods Manifest.lock */ = {
+		59CC33AF6574AF75D7483A0E0BC9BC86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -383,7 +383,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		99EC17879ED21ECA1A6F0D3D575B3BAD /* [CP] Check Pods Manifest.lock */ = {
+		B90DF6965BA4CD07B3286A8B920B2922 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA48E11FCA40F755B4FC20C8461F2BC6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -399,21 +414,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B90DF6965BA4CD07B3286A8B920B2922 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C214195A311B36518AFA77180B92B411 /* [CP] Copy Pods Resources */ = {
