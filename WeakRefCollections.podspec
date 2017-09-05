@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "WeakRefCollections"
-  s.version      = "0.1.1"
+  s.version      = "0.2.0"
   s.summary      = "A lightweight ensemble of nifty Swift Collections that support weak references to their elements."
   s.description  = <<-DESC
                    Unfortunately, Swift does not (yet?) have built-in (native) Collections (As in 'the Collection protocol'
