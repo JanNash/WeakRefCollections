@@ -11,12 +11,8 @@ The next additions are planned to be a dictionary, a set and a bidirectional dic
 
 ### Installation
 
-This framework can be installed via Cocoapods, just add  
-```pod 'WeakRefCollections'```  
-to the target you're planning to use it with.  
+This framework can be installed via Cocoapods, just add ```pod 'WeakRefCollections'``` to the target you're planning to use it with.  
 
-Don't forget to add  
-```use_frameworks!```  
-if it isn't there yet.
+Don't forget to also add ```use_frameworks!``` if it isn't in your Podfile yet.
 
 // TODO: Integrate framework with SPM.
