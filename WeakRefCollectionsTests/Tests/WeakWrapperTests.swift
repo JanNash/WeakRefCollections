@@ -29,7 +29,7 @@ class WeakWrapperTests: BaseTest {
         // TODO: Maybe an explicit test for it would also be nice...
         
         let expectation: XCTestExpectation = self.expectation(
-            description: "Delegate was not called when value was deinitialized"
+            description: "Delegate should have been called when value was deinitialized"
         )
         
         class Bar: WeakWrapperDelegate_ {
@@ -50,7 +50,7 @@ class WeakWrapperTests: BaseTest {
     
     func testValueIsNilInDeinitDelegateCallback() {
         let expectation: XCTestExpectation = self.expectation(
-            description: "Delegate was not called when value was deinitialized"
+            description: "Delegate should have been called when value was deinitialized"
         )
         
         class Bar: WeakWrapperDelegate_ {
