@@ -112,14 +112,14 @@ class WeakRefArrayTests: BaseTest {
         let description: String = ary.description
         XCTAssertFalse(description.isEmpty)
         
-        let count: Int = description.characters.count
+        let count: Int = description.count
         let foo: EquatableFoo = EquatableFoo(value: 1)
         ary.append(foo)
         
         let newDescription: String = ary.description
         XCTAssertFalse(newDescription.isEmpty)
         
-        let newCount: Int = newDescription.characters.count
+        let newCount: Int = newDescription.count
         XCTAssertNotEqual(count, newCount)
     }
     
@@ -128,14 +128,14 @@ class WeakRefArrayTests: BaseTest {
         let description: String = ary.debugDescription
         XCTAssertFalse(description.isEmpty)
         
-        let count: Int = description.characters.count
+        let count: Int = description.count
         let foo: EquatableFoo = EquatableFoo(value: 1)
         ary.append(foo)
         
         let newDescription: String = ary.debugDescription
         XCTAssertFalse(newDescription.isEmpty)
         
-        let newCount: Int = newDescription.characters.count
+        let newCount: Int = newDescription.count
         XCTAssertNotEqual(count, newCount)
     }
 }

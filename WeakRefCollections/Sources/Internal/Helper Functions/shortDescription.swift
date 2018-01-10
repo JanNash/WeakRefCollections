@@ -26,7 +26,7 @@ private func _shortDescription(of object: AnyObject) -> String {
     let identifierString: String = ObjectIdentifier(object).debugDescription
     let prefixRemoved: String = identifierString.replacingOccurrences(of: "ObjectIdentifier(0x", with: "")
     let identityString: String = prefixRemoved.replacingOccurrences(of: ")", with: "")
-    let range: NSRange = NSMakeRange(0, identityString.characters.count)
+    let range: NSRange = NSMakeRange(0, identityString.count)
     let regex: NSRegularExpression = try! NSRegularExpression(pattern: "^0*", options: .caseInsensitive)
     let stringWithPurgedLeadingZeroes: String = regex.stringByReplacingMatches(in: identityString, range: range, withTemplate: "")
     return "<\(typeString): \(stringWithPurgedLeadingZeroes)>"
