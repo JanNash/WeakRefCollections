@@ -101,6 +101,7 @@ class WeakRefArrayTests: BaseTest {
         
         ary1.remove(at: index)
         
+        // ???: Why do I nil out here?
         foo1 = nil
         
         XCTAssertEqual(ary1.count, 1)
