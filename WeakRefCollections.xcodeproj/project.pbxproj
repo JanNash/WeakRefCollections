@@ -256,6 +256,7 @@
 			buildConfigurationList = B0EA21627A4FEDB8219DB3AAA8CAA86D /* Build configuration list for PBXNativeTarget "WeakRefCollectionsTests" */;
 			buildPhases = (
 				BA48E11FCA40F755B4FC20C8461F2BC6 /* [CP] Check Pods Manifest.lock */,
+				34C74B162D28D15ED25A99630912C951 /* [Custom] Generate Warnings from TODOs/FIXMEs/etc */,
 				72A78BDF6CD03CFBD226466EFB029A89 /* Sources */,
 				6FC82444454D066A31516C8E8B8B2EF9 /* Frameworks */,
 				7E7EE5DD0B2100B64F2CBB4B5B61CAAB /* Resources */,
@@ -277,6 +278,7 @@
 			buildConfigurationList = F5AB07F08162D8CF18109EEAF19209C3 /* Build configuration list for PBXNativeTarget "WeakRefCollections" */;
 			buildPhases = (
 				59CC33AF6574AF75D7483A0E0BC9BC86 /* [CP] Check Pods Manifest.lock */,
+				71B4001CE040C19188C5716C64B7EE53 /* [Custom] Generate Warnings from TODOs/FIXMEs/etc */,
 				6E5460A49D313430EF0710C40EADA3F1 /* Sources */,
 				8DADFD2A09B1FF00C79FDBB60F78513C /* Frameworks */,
 				8D2998EAD4E029F8ED87926C3FD9199F /* Headers */,
@@ -350,6 +352,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		34C74B162D28D15ED25A99630912C951 /* [Custom] Generate Warnings from TODOs/FIXMEs/etc */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[Custom] Generate Warnings from TODOs/FIXMEs/etc";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"\\/\\/ ERROR:|\\/\\/ WARNING:|\\/\\/ TODO:|\\/\\/ FIXME:|\\/\\/ \\?\\?\\?:|\\/\\/ \\!\\!\\!:\"\nfind \"${SRCROOT}/WeakRefCollectionsTests/\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
 		59CC33AF6574AF75D7483A0E0BC9BC86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +383,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		71B4001CE040C19188C5716C64B7EE53 /* [Custom] Generate Warnings from TODOs/FIXMEs/etc */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[Custom] Generate Warnings from TODOs/FIXMEs/etc";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"\\/\\/ ERROR:|\\/\\/ WARNING:|\\/\\/ TODO:|\\/\\/ FIXME:|\\/\\/ \\?\\?\\?:|\\/\\/ \\!\\!\\!:\"\nfind \"${SRCROOT}/WeakRefCollections/\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
 		};
 		84F718684CDD8EF6CC77115CDFBA5CD2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
