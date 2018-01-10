@@ -46,6 +46,7 @@ class SeqIndxdWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     }
     
     // MARK: DeinitCallbackWrapper Callback Override
+    // FIXME: This should be named 'callDeinitDelegate()', of course
     override var deinitDelegateCall: (() -> Void) {
         return {
             self._deinitDelegateCall()

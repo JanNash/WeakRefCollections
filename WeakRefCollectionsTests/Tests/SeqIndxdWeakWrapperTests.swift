@@ -6,6 +6,9 @@
 //  Copyright © 2017 JanNash. All rights reserved.
 //
 
+// !!!: The numbering of the foos and of the wrappers is a mess.
+
+
 import XCTest
 @testable import WeakRefCollections
 
@@ -45,6 +48,7 @@ class SeqIndxdWeakWrapperTests: BaseTest {
     }
     
     func testIndicesWithThreeWrappers1() {
+        // ???: Why did I start counting at 1 for the Foos and at 0 for the wrappers?
         let foo1: EqFoo = EqFoo(value: 1)
         var foo2: EqFoo? = EqFoo(value: 2)
         let foo3: EqFoo = EqFoo(value: 3)
@@ -65,6 +69,7 @@ class SeqIndxdWeakWrapperTests: BaseTest {
     }
     
     func testIndicesWithThreeWrappers2() {
+        // ???: Why did I start counting at 1 for the Foos and at 0 for the wrappers?
         var foo1: EqFoo? = EqFoo(value: 1)
         let foo2: EqFoo = EqFoo(value: 2)
         let foo3: EqFoo = EqFoo(value: 3)
