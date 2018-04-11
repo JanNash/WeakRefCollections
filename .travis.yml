@@ -40,7 +40,7 @@ cache:
     - ~/.rvm/gems/ruby-2.5.1@WeakRefCollections/
 
 before_install:
-  - rvm use 2.5.0@WeakRefCollections --create
+  - rvm use 2.5.1@WeakRefCollections --create
 
 install:
   - gem install bundler
