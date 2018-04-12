@@ -12,9 +12,9 @@
 public class WeakRefArray<Element: AnyObject> {
     // Array Inits
     required public init() {}
-    required public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
+    required public init<S>(_ elements: S) where S : Sequence, Element == S.Element {
         var previous: SeqIndxdWeakWrapper_<Element>? = nil
-        self._array = s.map(self._wrapMap(&previous))
+        self._array = elements.map(self._wrapMap(&previous))
     }
     
     // ExpressibleByArrayLiteral Implementation
@@ -82,8 +82,8 @@ extension WeakRefArray: Collection {
 
 // MARK: RangeReplaceableCollection
 extension WeakRefArray: RangeReplaceableCollection {
-    public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
-        self._replaceSubrange(subrange, with: newElements)
+    public func append<S>(contentsOf newElements: S) where S : Sequence, Element == S.Element {
+        self._append(contentsOf: newElements)
     }
 }
 
@@ -126,14 +126,12 @@ private extension WeakRefArray/*: CustomDebugStringConvertible*/ {
 
 // MARK: RangeReplaceableCollection Implementation
 private extension WeakRefArray/*: RangeReplaceableCollection*/ {
-    func _replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
-        let oldElements: ArraySlice<SeqIndxdWeakWrapper_<Element>> = self._array[subrange]
-        oldElements.forEach({ $0.delegate = nil })
-        
+    func _append<S>(contentsOf newElements: S) where S : Sequence, Element == S.Element {
         var previous: SeqIndxdWeakWrapper_<Element>? = nil
-        self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
+        self._array.append(contentsOf: newElements.map(self._wrapMap(&previous)))
     }
 }
+
 
 // MARK: Wrapping Helper Function
 private extension WeakRefArray {
