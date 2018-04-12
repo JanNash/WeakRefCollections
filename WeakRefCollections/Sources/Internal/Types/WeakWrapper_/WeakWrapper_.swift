@@ -72,6 +72,14 @@ class WeakWrapper_<Value: AnyObject> {
 }
 
 
+// MARK: Conditional Equatable Conformance
+extension WeakWrapper_: Equatable where Value: Equatable {
+    static func == (lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool {
+        return lhs.value == rhs.value
+    }
+}
+
+
 // MARK: CustomStringConvertible
 extension WeakWrapper_: CustomStringConvertible {
     final var description: String {
@@ -89,17 +97,6 @@ extension WeakWrapper_: CustomDebugStringConvertible {
             "delegate: \(shortDescription(of: self._delegate))" +
             "\(self.additionalDebugDescription))"
     }
-}
-
-
-// MARK: Pseudo-Equatable
-// Waiting for https://github.com/apple/swift-evolution/blob/master/proposals/0143-conditional-conformances.md
-func ==<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable {
-    return lhs.value == rhs.value
-}
-
-func !=<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable  {
-    return lhs.value != rhs.value
 }
 
 
