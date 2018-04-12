@@ -33,6 +33,14 @@ public class WeakRefArray<Element: AnyObject> {
 extension WeakRefArray: ExpressibleByArrayLiteral {}
 
 
+// MARK: Equatable
+extension WeakRefArray: Equatable where Element: Equatable {
+    public static func == (lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool {
+        return lhs._array == rhs._array
+    }
+}
+
+
 // MARK: CustomStringConvertible
 extension WeakRefArray: CustomStringConvertible {
     public var description: String {
@@ -46,17 +54,6 @@ extension WeakRefArray: CustomDebugStringConvertible {
     public var debugDescription: String {
         return self._debugDescription
     }
-}
-
-
-// MARK: Pseudo-Equatable
-// Waiting for https://github.com/apple/swift-evolution/blob/master/proposals/0143-conditional-conformances.md
-public func ==<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable  {
-    return lhs._array.elementsEqual(rhs._array, by: ==)
-}
-
-public func !=<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable {
-    return !(lhs == rhs)
 }
 
 
