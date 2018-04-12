@@ -52,8 +52,8 @@ class WeakWrapper_<Value: AnyObject> {
     }
     
     // Private Weak Variables
-    fileprivate weak var _delegate: WeakWrapperDelegate_?
-    fileprivate weak var _value: Value?
+    private weak var _delegate: WeakWrapperDelegate_?
+    private weak var _value: Value?
     
     // Private Variables
     private var _associationKey: Void?

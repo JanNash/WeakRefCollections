@@ -30,9 +30,9 @@ class SeqIndxdWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     }
     
     // Private Variables
-    fileprivate var __index: Int
-    fileprivate var _next: SeqIndxdWeakWrapper_?
-    fileprivate var _previous: SeqIndxdWeakWrapper_?
+    private var __index: Int
+    private var _next: SeqIndxdWeakWrapper_?
+    private var _previous: SeqIndxdWeakWrapper_?
 
     
     // MARK: Overrides

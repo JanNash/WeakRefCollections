@@ -24,7 +24,7 @@ public class WeakRefArray<Element: AnyObject> {
     }
     
     // Private Variables
-    fileprivate var _array: [SeqIndxdWeakWrapper_<Element>] = []
+    private var _array: [SeqIndxdWeakWrapper_<Element>] = []
 }
 
 
