@@ -24,12 +24,8 @@ extension WeakWrapper_ {
     
     // ReadWrite
     var delegate: WeakWrapperDelegate_? {
-        get {
-            return self._delegate
-        }
-        set(newDelegate) {
-            self._delegate = newDelegate
-        }
+        get { return self._delegate }
+        set { self._delegate = newValue }
     }
 }
 
@@ -46,7 +42,7 @@ class WeakWrapper_<Value: AnyObject> {
         objc_setAssociatedObject(
             val,
             &self._associationKey,
-            DeinitCallbackWrapper_(self.deinitDelegateCall),
+            DeinitCallbackWrapper_(self.processValueDeinitialization),
             .OBJC_ASSOCIATION_RETAIN
         )
     }
@@ -66,8 +62,8 @@ class WeakWrapper_<Value: AnyObject> {
     }
     
     // MARK: DeinitCallbackWrapper Callback
-    var deinitDelegateCall: (() -> Void) {
-        return self._deinitDelegateCall
+    var processValueDeinitialization: (() -> Void) {
+        return self._processValueDeinitialization
     }
 }
 
@@ -90,7 +86,7 @@ extension WeakWrapper_: CustomStringConvertible {
 
 // MARK: CustomDebugStringConvertible
 extension WeakWrapper_: CustomDebugStringConvertible {
-    var debugDescription: String {
+    final var debugDescription: String {
         return
             "\(shortDescription(of: self))(" +
             "value: \(??self._value), " +
@@ -103,9 +99,7 @@ extension WeakWrapper_: CustomDebugStringConvertible {
 // MARK: // Private
 // MARK: Computed Variables
 private extension WeakWrapper_ {
-    var _deinitDelegateCall: (() -> Void) {
-        return {
-            self.delegate?.disconnected(weakWrapper: self)
-        }
+    var _processValueDeinitialization: (() -> Void) {
+        return { self.delegate?.disconnected(weakWrapper: self) }
     }
 }
