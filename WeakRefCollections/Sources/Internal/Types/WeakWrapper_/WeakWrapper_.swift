@@ -86,7 +86,7 @@ extension WeakWrapper_: CustomStringConvertible {
 
 // MARK: CustomDebugStringConvertible
 extension WeakWrapper_: CustomDebugStringConvertible {
-    var debugDescription: String {
+    final var debugDescription: String {
         return
             "\(shortDescription(of: self))(" +
             "value: \(??self._value), " +
