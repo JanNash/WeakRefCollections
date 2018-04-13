@@ -9,12 +9,12 @@
 
 // MARK: // Public
 // MARK: Class Declaration
-public class WeakRefArray<Element: AnyObject> {
+final public class WeakRefArray<Element: AnyObject> {
     // Array Inits
     required public init() {}
-    required public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
+    required public init<S>(_ elements: S) where S : Sequence, Element == S.Element {
         var previous: SeqIndxdWeakWrapper_<Element>? = nil
-        self._array = s.map(self._wrapMap(&previous))
+        self._array = elements.map(self._wrapMap(&previous))
     }
     
     // ExpressibleByArrayLiteral Implementation
@@ -24,13 +24,21 @@ public class WeakRefArray<Element: AnyObject> {
     }
     
     // Private Variables
-    fileprivate var _array: [SeqIndxdWeakWrapper_<Element>] = []
+    private var _array: [SeqIndxdWeakWrapper_<Element>] = []
 }
 
 
 // MARK: ExpressibleByArrayLiteral
 // (Implementation in Class Declaration)
 extension WeakRefArray: ExpressibleByArrayLiteral {}
+
+
+// MARK: Equatable
+extension WeakRefArray: Equatable where Element: Equatable {
+    public static func == (lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool {
+        return lhs._array == rhs._array
+    }
+}
 
 
 // MARK: CustomStringConvertible
@@ -49,32 +57,23 @@ extension WeakRefArray: CustomDebugStringConvertible {
 }
 
 
-// MARK: Pseudo-Equatable
-// Waiting for https://github.com/apple/swift-evolution/blob/master/proposals/0143-conditional-conformances.md
-public func ==<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable  {
-    return lhs._array.elementsEqual(rhs._array, by: ==)
-}
-
-public func !=<Element>(lhs: WeakRefArray<Element>, rhs: WeakRefArray<Element>) -> Bool where Element : Equatable {
-    return !(lhs == rhs)
-}
-
-
 // MARK: Collection
 extension WeakRefArray: Collection {
-    public var startIndex: Int {
+    public typealias Index = Int
+    
+    public var startIndex: Index {
         return self._array.startIndex
     }
     
-    public var endIndex: Int {
+    public var endIndex: Index {
         return self._array.endIndex
     }
     
-    public func index(after i: Int) -> Int {
+    public func index(after i: Index) -> Index {
         return self._array.index(after: i)
     }
     
-    public subscript(index: Int) -> Element {
+    public subscript(index: Index) -> Element {
         return self._array[index].value!
     }
 }
@@ -82,7 +81,7 @@ extension WeakRefArray: Collection {
 
 // MARK: RangeReplaceableCollection
 extension WeakRefArray: RangeReplaceableCollection {
-    public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
+    public func replaceSubrange<C, R>(_ subrange: R, with newElements: C) where C : Collection, R : RangeExpression, Element == C.Element, Int == R.Bound {
         self._replaceSubrange(subrange, with: newElements)
     }
 }
@@ -126,14 +125,15 @@ private extension WeakRefArray/*: CustomDebugStringConvertible*/ {
 
 // MARK: RangeReplaceableCollection Implementation
 private extension WeakRefArray/*: RangeReplaceableCollection*/ {
-    func _replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
+    func _replaceSubrange<C, R>(_ subrange: R, with newElements: C) where C : Collection, R : RangeExpression, Element == C.Element, Int == R.Bound {
         let oldElements: ArraySlice<SeqIndxdWeakWrapper_<Element>> = self._array[subrange]
         oldElements.forEach({ $0.delegate = nil })
         
         var previous: SeqIndxdWeakWrapper_<Element>? = nil
-        self._array[subrange] = ArraySlice(newElements.map(self._wrapMap(&previous)))
+        self._array.replaceSubrange(subrange, with: newElements.map(self._wrapMap(&previous)))
     }
 }
+
 
 // MARK: Wrapping Helper Function
 private extension WeakRefArray {

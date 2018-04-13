@@ -52,8 +52,8 @@ class WeakWrapper_<Value: AnyObject> {
     }
     
     // Private Weak Variables
-    fileprivate weak var _delegate: WeakWrapperDelegate_?
-    fileprivate weak var _value: Value?
+    private weak var _delegate: WeakWrapperDelegate_?
+    private weak var _value: Value?
     
     // Private Variables
     private var _associationKey: Void?
@@ -68,6 +68,14 @@ class WeakWrapper_<Value: AnyObject> {
     // MARK: DeinitCallbackWrapper Callback
     var deinitDelegateCall: (() -> Void) {
         return self._deinitDelegateCall
+    }
+}
+
+
+// MARK: Conditional Equatable Conformance
+extension WeakWrapper_: Equatable where Value: Equatable {
+    static func == (lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool {
+        return lhs.value == rhs.value
     }
 }
 
@@ -89,17 +97,6 @@ extension WeakWrapper_: CustomDebugStringConvertible {
             "delegate: \(shortDescription(of: self._delegate))" +
             "\(self.additionalDebugDescription))"
     }
-}
-
-
-// MARK: Pseudo-Equatable
-// Waiting for https://github.com/apple/swift-evolution/blob/master/proposals/0143-conditional-conformances.md
-func ==<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable {
-    return lhs.value == rhs.value
-}
-
-func !=<Value>(lhs: WeakWrapper_<Value>, rhs: WeakWrapper_<Value>) -> Bool where Value : Equatable  {
-    return lhs.value != rhs.value
 }
 
 
