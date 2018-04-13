@@ -59,19 +59,21 @@ extension WeakRefArray: CustomDebugStringConvertible {
 
 // MARK: Collection
 extension WeakRefArray: Collection {
-    public var startIndex: Int {
+    public typealias Index = Int
+    
+    public var startIndex: Index {
         return self._array.startIndex
     }
     
-    public var endIndex: Int {
+    public var endIndex: Index {
         return self._array.endIndex
     }
     
-    public func index(after i: Int) -> Int {
+    public func index(after i: Index) -> Index {
         return self._array.index(after: i)
     }
     
-    public subscript(index: Int) -> Element {
+    public subscript(index: Index) -> Element {
         return self._array[index].value!
     }
 }
