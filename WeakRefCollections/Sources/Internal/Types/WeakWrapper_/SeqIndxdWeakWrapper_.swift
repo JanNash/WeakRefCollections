@@ -46,11 +46,10 @@ class SeqIndxdWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
     }
     
     // MARK: DeinitCallbackWrapper Callback Override
-    // FIXME: This should be named 'callDeinitDelegate()', of course
-    override var deinitDelegateCall: (() -> Void) {
+    override var processValueDeinitialization: (() -> Void) {
         return {
-            self._deinitDelegateCall()
-            super.deinitDelegateCall()
+            self._processValueDeinitialization()
+            super.processValueDeinitialization()
         }
     }
 }
@@ -67,7 +66,7 @@ private extension SeqIndxdWeakWrapper_ {
         }
     }
     
-    var _deinitDelegateCall: (() -> Void) {
+    var _processValueDeinitialization: (() -> Void) {
         return {
             self._next?._index = self._index
             self._previous?._next = self._next

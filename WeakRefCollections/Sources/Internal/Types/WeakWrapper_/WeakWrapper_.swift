@@ -42,7 +42,7 @@ class WeakWrapper_<Value: AnyObject> {
         objc_setAssociatedObject(
             val,
             &self._associationKey,
-            DeinitCallbackWrapper_(self.deinitDelegateCall),
+            DeinitCallbackWrapper_(self.processValueDeinitialization),
             .OBJC_ASSOCIATION_RETAIN
         )
     }
@@ -62,8 +62,8 @@ class WeakWrapper_<Value: AnyObject> {
     }
     
     // MARK: DeinitCallbackWrapper Callback
-    var deinitDelegateCall: (() -> Void) {
-        return self._deinitDelegateCall
+    var processValueDeinitialization: (() -> Void) {
+        return self._processValueDeinitialization
     }
 }
 
@@ -99,7 +99,7 @@ extension WeakWrapper_: CustomDebugStringConvertible {
 // MARK: // Private
 // MARK: Computed Variables
 private extension WeakWrapper_ {
-    var _deinitDelegateCall: (() -> Void) {
+    var _processValueDeinitialization: (() -> Void) {
         return { self.delegate?.disconnected(weakWrapper: self) }
     }
 }
