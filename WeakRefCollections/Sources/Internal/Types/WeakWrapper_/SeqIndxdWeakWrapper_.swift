@@ -60,9 +60,7 @@ class SeqIndxdWeakWrapper_<Value: AnyObject>: WeakWrapper_<Value> {
 // MARK: Computed Variables
 private extension SeqIndxdWeakWrapper_ {
     var _index: Int {
-        get {
-            return self.__index
-        }
+        get { return self.__index }
         set(newIndex) {
             self.__index = newIndex
             self._next?._index = newIndex + 1

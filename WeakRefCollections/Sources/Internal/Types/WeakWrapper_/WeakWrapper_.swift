@@ -24,12 +24,8 @@ extension WeakWrapper_ {
     
     // ReadWrite
     var delegate: WeakWrapperDelegate_? {
-        get {
-            return self._delegate
-        }
-        set(newDelegate) {
-            self._delegate = newDelegate
-        }
+        get { return self._delegate }
+        set { self._delegate = newValue }
     }
 }
 
@@ -104,8 +100,6 @@ extension WeakWrapper_: CustomDebugStringConvertible {
 // MARK: Computed Variables
 private extension WeakWrapper_ {
     var _deinitDelegateCall: (() -> Void) {
-        return {
-            self.delegate?.disconnected(weakWrapper: self)
-        }
+        return { self.delegate?.disconnected(weakWrapper: self) }
     }
 }
