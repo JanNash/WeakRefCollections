@@ -260,8 +260,6 @@
 				72A78BDF6CD03CFBD226466EFB029A89 /* Sources */,
 				6FC82444454D066A31516C8E8B8B2EF9 /* Frameworks */,
 				7E7EE5DD0B2100B64F2CBB4B5B61CAAB /* Resources */,
-				B90DF6965BA4CD07B3286A8B920B2922 /* [CP] Embed Pods Frameworks */,
-				84F718684CDD8EF6CC77115CDFBA5CD2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,7 +281,6 @@
 				8DADFD2A09B1FF00C79FDBB60F78513C /* Frameworks */,
 				8D2998EAD4E029F8ED87926C3FD9199F /* Headers */,
 				29A20C4144922E1932E97754C981E31F /* Resources */,
-				C214195A311B36518AFA77180B92B411 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -398,36 +395,6 @@
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"\\/\\/ ERROR:|\\/\\/ WARNING:|\\/\\/ TODO:|\\/\\/ FIXME:|\\/\\/ \\?\\?\\?:|\\/\\/ \\!\\!\\!:\"\nfind \"${SRCROOT}/WeakRefCollections/\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
 		};
-		84F718684CDD8EF6CC77115CDFBA5CD2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B90DF6965BA4CD07B3286A8B920B2922 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollectionsTests/Pods-WeakRefCollectionsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BA48E11FCA40F755B4FC20C8461F2BC6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,21 +411,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C214195A311B36518AFA77180B92B411 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeakRefCollections/Pods-WeakRefCollections-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
